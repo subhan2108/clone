@@ -21,7 +21,7 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
             <span>Reserved for the athlete who</span>
             <span>Makes sport a lifestyle</span>
           </h1>
-          
+
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -29,9 +29,9 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
             className="max-w-4xl mx-auto space-y-6"
           >
             <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium">
-              Reserve is pioneering a new sport across the United States by creating players, 
-              fans and friends. This community, built on and around the court, will showcase 
-              the world’s newest, most exciting game: padel. Through padel clubs, activations, pop-ups, 
+              Reserve is pioneering a new sport across the United States by creating players,
+              fans and friends. This community, built on and around the court, will showcase
+              the world’s newest, most exciting game: padel. Through padel clubs, activations, pop-ups,
               and tournaments, Reserve will propel to new heights by developing athletes throughout America.
             </p>
           </motion.div>
@@ -41,81 +41,89 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
       {/* Scroll-Animated Line Section */}
       <ScrollStatementSection />
 
-      {/* Revolution Section */}
-      <section className="bg-black py-24 px-6">
-        {/* Quote & Large Title */}
-        <div className="max-w-[1400px] mx-auto text-center mb-32">
+      {/* Founder Section */}
+      <section className="bg-white text-reserve-black py-32 px-6">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="mb-32"
+            className="order-2 lg:order-1"
           >
-            <h2 className="text-3xl md:text-5xl font-serif italic text-white/90 leading-tight max-w-5xl mx-auto mb-8">
-              "Padel is more than a game; it's a community built on the spirit of competition and the pleasure of style."
-            </h2>
-            <div className="w-16 h-[1.5px] bg-[#c48f42] mx-auto" />
-          </motion.div>
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-            viewport={{ once: true }}
-            className="text-6xl md:text-[10rem] font-serif leading-[0.8] tracking-tighter text-white/20 mb-32"
-          >
-            Join the Padel <br /> Revolution
-          </motion.h2>
-        </div>
-
-        {/* CTA with Background Image */}
-        <div className="relative max-w-[1400px] mx-auto min-h-[70vh] flex items-center justify-center text-center overflow-hidden rounded-sm mb-32 group">
-          <div className="absolute inset-0 z-0 scale-105 group-hover:scale-100 transition-transform duration-[2s]">
             <img
-              src="https://picsum.photos/seed/padelhero/1920/1080"
-              alt="Join the Revolution"
-              className="w-full h-full object-cover opacity-60"
+              src="https://picsum.photos/seed/founder/1000/1000"
+              alt="Wayne Boich"
+              className="w-full aspect-square object-cover rounded-sm grayscale"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-black/40" />
-          </div>
-          
+          </motion.div>
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative z-10 px-6"
+            className="order-1 lg:order-2"
           >
-            <h3 className="text-5xl md:text-7xl font-serif text-white mb-6">Join the Padel Revolution</h3>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 font-medium tracking-tight">
-              Be part of the fastest growing sport in the world. <br />
-              Experience the Reserve difference.
-            </p>
-            <button 
-              className="bg-white text-black px-10 py-4 rounded-full text-sm uppercase tracking-widest font-bold hover:bg-[#6f886c] hover:text-white transition-colors duration-300"
-              onClick={() => onNavigate("membership")}
-            >
-              Become a Member
-            </button>
+            <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-4">Leadership</p>
+            <h2 className="text-4xl md:text-6xl font-serif mb-12">About Our Founder</h2>
+            <div className="text-lg text-black/70 space-y-6 leading-relaxed">
+              <p>
+                Wayne Boich, a former top-ranked junior tennis player and US Open Junior Competitor,
+                first experienced padel in 2013. The sport quickly became part of his daily routine,
+                and he passionately shared his love for padel with friends, family, and the community.
+              </p>
+              <p>
+                Inspired by his passion, Wayne Boich is expanding the world of padel by sharing this
+                fast-paced, thrilling sport across multiple verticals, continuing to be the catalyst
+                behind its growth.
+              </p>
+            </div>
           </motion.div>
         </div>
-
-        {/* Massive Footer Statement */}
-        <div className="max-w-[1400px] mx-auto text-center py-24">
-          <motion.h2 
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2 }}
-            viewport={{ once: true }}
-            className="text-6xl md:text-[12rem] font-serif leading-[0.8] tracking-tighter text-white/20"
-          >
-            Become a <br /> Member
-          </motion.h2>
-        </div>
       </section>
-      
+
+      {/* Vision Section */}
+      <section className="py-32 px-6 max-w-5xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-4xl md:text-6xl font-serif mb-12 italic">"Padel is more than a game; it's a community built on the spirit of competition and the pleasure of style."</h2>
+          <div className="w-24 h-px bg-reserve-accent mx-auto" />
+        </motion.div>
+      </section>
+
+      {/* Join Section */}
+      <section className="relative py-48 px-6 overflow-hidden text-center">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://picsum.photos/seed/revolution/1920/1080"
+            alt="Padel Revolution"
+            className="w-full h-full object-cover opacity-30"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-reserve-black via-transparent to-reserve-black" />
+        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="relative z-10"
+        >
+          <h2 className="text-5xl md:text-8xl font-serif mb-8">Join the Padel Revolution</h2>
+          <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
+            Be part of the fastest growing sport in the world.
+            Experience the Reserve difference.
+          </p>
+          <button className="btn-primary" onClick={() => onNavigate("membership")}>Become a Member</button>
+        </motion.div>
+      </section>
+
       <Footer onNavigate={onNavigate} />
     </div>
   );
@@ -130,14 +138,14 @@ const ScrollStatementSection = () => {
 
   // Line grows from 0% to 100% as the section enters (0.1 to 0.3 range)
   const scaleX = useTransform(scrollYProgress, [0.1, 0.35], [0, 1]);
-  
+
   // Words reveal sequentially after the line has significant progress
   const opacity1 = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
   const y1 = useTransform(scrollYProgress, [0.35, 0.45], [20, 0]);
-  
+
   const opacity2 = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
   const y2 = useTransform(scrollYProgress, [0.5, 0.6], [20, 0]);
-  
+
   const opacity3 = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
   const y3 = useTransform(scrollYProgress, [0.65, 0.75], [20, 0]);
 
@@ -146,11 +154,11 @@ const ScrollStatementSection = () => {
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-6 md:px-12 overflow-hidden">
         <div className="max-w-[1400px] mx-auto w-full relative pt-12">
           {/* The Growing Line - Starts growing as soon as it enters viewport */}
-          <motion.div 
+          <motion.div
             className="absolute top-0 left-0 h-[1.5px] bg-white w-full origin-left"
             style={{ scaleX }}
           />
-          
+
           {/* Three Columns - Animated One by One */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pt-16">
             <motion.div style={{ opacity: opacity1, y: y1 }} className="flex flex-col">
@@ -158,13 +166,13 @@ const ScrollStatementSection = () => {
                 RESERVE <br /> IS THE FUTURE OF <br /> PADEL
               </h3>
             </motion.div>
-            
+
             <motion.div style={{ opacity: opacity2, y: y2 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
                 RESERVE <br /> IS PADEL
               </h3>
             </motion.div>
-            
+
             <motion.div style={{ opacity: opacity3, y: y3 }} className="flex flex-col">
               <div className="group">
                 <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-[#6f886c]">
