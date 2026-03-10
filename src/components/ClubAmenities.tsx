@@ -68,7 +68,7 @@ const ClubAmenities = () => {
               marginBottom: '1.5rem'
             }}
           >
-            OUR CLUB AMENITIES
+            OUR CLUB
           </h2>
           <p className="max-w-4xl text-center leading-relaxed font-medium" style={{ color: 'rgba(240,236,226,0.65)', fontSize: '1.05rem', fontFamily: 'sans-serif' }}>
             At Reserve, each of our clubs offers a unique selection of amenities from locker rooms, showers and cold plunges to a wellness center that features a steam room and sauna. Whether you're here to play, relax, or socialize, our clubs provide the perfect environment for every aspect of your visit.
