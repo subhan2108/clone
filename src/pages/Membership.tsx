@@ -10,17 +10,17 @@ const Membership = ({ onNavigate }: MembershipProps) => {
     {
       title: "Elite Sports Club",
       description: "Give your sports club the edge with our top-tier courts. Integrated management and premium aesthetics.",
-      image: "https://picsum.photos/seed/elite-club/800/600"
+      image: "https://images.unsplash.com/photo-1542323565-5b870e2817ee?q=80&w=800&auto=format&fit=crop"
     },
     {
       title: "Luxury Hotels",
       description: "Level up on Luxury: Take your hotel to new heights with our premium courts and guest experiences.",
-      image: "https://picsum.photos/seed/luxury-hotel/800/600"
+      image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=800&auto=format&fit=crop"
     },
     {
       title: "Exclusive Villas",
       description: "Catapult your villas into a league of their own with our top-notch private court solutions.",
-      image: "https://picsum.photos/seed/private-villa/800/600"
+      image: "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=800&auto=format&fit=crop"
     }
   ];
 
@@ -113,7 +113,7 @@ const Membership = ({ onNavigate }: MembershipProps) => {
             className="aspect-square bg-reserve-black/5 rounded-sm overflow-hidden"
           >
             <img
-              src="https://picsum.photos/seed/innovation/1000/1000"
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop"
               alt="Innovation"
               className="w-full h-full object-cover grayscale"
               referrerPolicy="no-referrer"
@@ -143,7 +143,7 @@ const Membership = ({ onNavigate }: MembershipProps) => {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://picsum.photos/seed/foundation/1920/1080"
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1920&auto=format&fit=crop"
             alt="Foundation"
             className="w-full h-full object-cover opacity-40"
             referrerPolicy="no-referrer"

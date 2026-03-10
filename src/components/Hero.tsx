@@ -11,7 +11,7 @@ const Hero = () => {
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10" />
         <img
-          src="https://picsum.photos/seed/reserve-hero/1920/1080"
+          src="https://images.unsplash.com/photo-1622279457486-640fc294f258?q=80&w=1920&auto=format&fit=crop"
           alt="Reserve Padel Court Atmosphere"
           className="w-full h-full object-cover grayscale brightness-75 scale-110"
           referrerPolicy="no-referrer"
@@ -27,7 +27,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
           className="text-7xl md:text-9xl lg:text-[14rem] font-serif font-medium leading-[0.8] tracking-tighter mb-16 italic"
-          style={{ 
+          style={{
             color: '#f0ece2',
             textShadow: '0 20px 40px rgba(0,0,0,0.5)',
             letterSpacing: '-0.04em'
@@ -53,14 +53,14 @@ const Hero = () => {
       </div>
 
       {/* Down arrow indicator scroll trigger anim */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-4 opacity-30 group"
       >
         <div className="w-px h-16 bg-gradient-to-b from-white to-transparent overflow-hidden">
-          <motion.div 
+          <motion.div
             animate={{ y: ["-100%", "100%"] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
             className="w-full h-full bg-white"

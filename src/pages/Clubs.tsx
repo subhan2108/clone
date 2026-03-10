@@ -10,19 +10,19 @@ const Clubs = ({ onNavigate }: ClubsProps) => {
     {
       name: "Miami Seaplane",
       description: "Our vibrant social hub. Nestled in the heart of Miami, our Seaplane club offers the ultimate on-and-off court experience.",
-      image: "https://picsum.photos/seed/seaplane/1200/800",
+      image: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1200&auto=format&fit=crop",
       status: "Open Now"
     },
     {
       name: "Hudson Yards",
       description: "Full club serving soon. Play goes on at our iconic riverside venue at Hudson Yards, where temporary outdoor courts are now open.",
-      image: "https://picsum.photos/seed/hudson/1200/800",
+      image: "https://images.unsplash.com/photo-1461958508236-9a742665a0d5?q=80&w=1200&auto=format&fit=crop",
       status: "Coming Soon"
     },
     {
       name: "Design District",
       description: "The intersection of art and sport. A boutique padel experience in the heart of Miami's most creative neighborhood.",
-      image: "https://picsum.photos/seed/design/1200/800",
+      image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1200&auto=format&fit=crop",
       status: "Open Now"
     }
   ];
@@ -99,7 +99,7 @@ const Clubs = ({ onNavigate }: ClubsProps) => {
           <p className="text-xl text-black/60 mb-12 leading-relaxed">
             Join our community for exclusive benefits, events and early access to new locations.
           </p>
-          <button 
+          <button
             onClick={() => onNavigate("membership")}
             className="px-12 py-5 bg-reserve-black text-white uppercase tracking-widest hover:bg-reserve-accent transition-all"
           >

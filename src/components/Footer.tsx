@@ -17,9 +17,9 @@ const Footer = ({ onNavigate }: FooterProps) => {
             <div className="flex flex-col gap-2">
               <label className="text-[10px] uppercase tracking-widest text-white/40">Email *</label>
               <div className="flex border-b border-white/20 pb-2 group focus-within:border-white transition-colors">
-                <input 
-                  type="email" 
-                  className="bg-transparent border-none outline-none w-full text-lg placeholder:text-white/10" 
+                <input
+                  type="email"
+                  className="bg-transparent border-none outline-none w-full text-lg placeholder:text-white/10"
                   placeholder="Your Email"
                 />
                 <button className="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-reserve-accent transition-colors">Submit</button>
@@ -86,7 +86,7 @@ const Footer = ({ onNavigate }: FooterProps) => {
           </div>
         </div>
 
-        <div className="mt-24 pt-12 border-t border-white/5 flex justify-between items-center text-[8px] md:text-[10px] uppercase tracking-[0.3em] text-white/20">
+        <div className="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center text-[8px] md:text-[10px] uppercase tracking-[0.3em] text-white/20 text-center md:text-left">
           <span>© 2024 Reserve Padel. All Rights Reserved.</span>
           <div className="flex gap-8">
             <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>

@@ -4,7 +4,7 @@ const ClubAmenities = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [fontSize, setFontSize] = useState(3.5); // Initial rem
   const [stretch, setStretch] = useState(1);
-  const [stampProgress, setStampProgress] = useState(0); 
+  const [stampProgress, setStampProgress] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -22,11 +22,11 @@ const ClubAmenities = () => {
       // Text stretching logic
       const peak = 0.5;
       const p = progress <= peak ? progress / peak : 1 - (progress - peak) / (1 - peak);
-      
+
       // Scale from 3.5rem to 6rem
       const minFont = 3.5, maxFont = 6;
       setFontSize(minFont + (maxFont - minFont) * Math.pow(p, 0.6));
-      
+
       // Optional physical horizontal stretch like the screenshot
       const minStretch = 1, maxStretch = 1.25;
       setStretch(minStretch + (maxStretch - minStretch) * Math.pow(p, 0.6));
@@ -54,18 +54,17 @@ const ClubAmenities = () => {
   return (
     <section ref={sectionRef} className="py-32 px-6" style={{ background: '#0a0a0a' }}>
       <div className="max-w-[1400px] w-[94%] mx-auto">
-        <div className="text-center mb-32 flex flex-col items-center" style={{ overflow: 'hidden' }}>
-          <h2 
-            className="font-black uppercase transition-none select-none" 
-            style={{ 
-              color: '#f0ece2', 
-              lineHeight: 1, 
-              fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif", 
+        <div className="text-center mb-16 md:mb-32 flex flex-col items-center" style={{ overflow: 'hidden' }}>
+          <h2
+            className="font-black uppercase transition-none select-none text-wrap md:whitespace-nowrap"
+            style={{
+              color: '#f0ece2',
+              lineHeight: 1,
+              fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
               letterSpacing: '-0.05em',
-              fontSize: `${fontSize}rem`,
+              fontSize: `clamp(2rem, ${fontSize}vw, 6rem)`,
               willChange: 'font-size, transform',
               transform: `scaleX(${stretch})`,
-              whiteSpace: 'nowrap',
               marginBottom: '1.5rem'
             }}
           >
@@ -79,26 +78,26 @@ const ClubAmenities = () => {
         {/* Icons and Horizontal Line Container */}
         <div className="relative w-full">
           {/* Horizontal line placed at the top with scroll tracking progress */}
-          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none" style={{ height: '1px', backgroundColor: 'rgba(240,236,226,0.1)' }}>
+          <div className="absolute top-0 left-0 w-full z-10 pointer-events-none hidden md:block" style={{ height: '1px', backgroundColor: 'rgba(240,236,226,0.1)' }}>
             {/* The active progress line */}
             <div className="absolute top-0 left-0 h-full bg-[#f0ece2] opacity-60" style={{ width: `${stampProgress}%` }} />
             {/* The vertical tracking tick mark */}
             <div className="absolute top-[-5px] w-[1px] h-[11px] bg-[#f0ece2]" style={{ left: `${stampProgress}%`, transform: 'translateX(-50%)' }} />
           </div>
 
-          <div className="relative z-20 flex justify-between items-start w-full pt-16">
+          <div className="relative z-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-12 justify-items-center w-full pt-8 md:pt-16">
             {amenities.map((item, index) => (
               <div key={index} className="flex flex-col items-center w-32">
-                <div 
-                  className="w-[100px] h-[100px] mb-8 text-[#f0ece2] flex items-center justify-center rounded-full bg-transparent opacity-90"
+                <div
+                  className="w-[80px] h-[80px] md:w-[100px] md:h-[100px] mb-4 md:mb-8 text-[#f0ece2] flex items-center justify-center rounded-full bg-transparent opacity-90"
                 >
-                  <svg 
-                    width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="0.75" 
+                  <svg
+                    width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="0.75"
                     className="animate-[spin_20s_linear_infinite]"
                   >
                     {/* Outer Circle (common to all) */}
                     <circle cx="32" cy="32" r="31" />
-                    
+
                     {/* Unique Inner Patterns based on index */}
                     {index === 0 && ( // New Equipment
                       <>
@@ -149,7 +148,7 @@ const ClubAmenities = () => {
                     )}
                   </svg>
                 </div>
-                <div className="text-center whitespace-pre-line text-[12px] font-medium tracking-wide uppercase" style={{ color: '#f0ece2', lineHeight: 1.4, fontFamily: 'sans-serif' }}>
+                <div className="text-center whitespace-pre-line text-[11px] md:text-[12px] font-medium tracking-wide uppercase" style={{ color: '#f0ece2', lineHeight: 1.4, fontFamily: 'sans-serif' }}>
                   {item.text}
                 </div>
               </div>

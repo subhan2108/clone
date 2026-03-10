@@ -52,7 +52,7 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
             className="order-2 lg:order-1"
           >
             <img
-              src="https://picsum.photos/seed/founder/1000/1000"
+              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1000&auto=format&fit=crop"
               alt="Wayne Boich"
               className="w-full aspect-square object-cover rounded-sm grayscale"
               referrerPolicy="no-referrer"
@@ -101,7 +101,7 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
       <section className="relative py-48 px-6 overflow-hidden text-center">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://picsum.photos/seed/revolution/1920/1080"
+            src="https://images.unsplash.com/photo-1587280590050-0c2400ee00ab?q=80&w=1920&auto=format&fit=crop"
             alt="Padel Revolution"
             className="w-full h-full object-cover opacity-30"
             referrerPolicy="no-referrer"

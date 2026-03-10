@@ -57,15 +57,14 @@ const DiscoverPrograms = () => {
         {/* ── ANIMATED HEADING ── */}
         <div className="text-center mb-6" style={{ overflow: 'hidden' }}>
           <h2
-            className="font-black uppercase leading-none transition-none select-none"
+            className="font-black uppercase leading-none transition-none select-none text-wrap md:whitespace-nowrap"
             style={{
-              fontSize: `${fontSize}rem`, // back to rem
+              fontSize: `clamp(1.5rem, ${fontSize}vw, 3.5rem)`,
               fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
               color: '#f0ece2',
               letterSpacing: '-0.05em', // Tighter spacing to match screenshot
               lineHeight: 1,
               willChange: 'font-size',
-              whiteSpace: 'nowrap',
             }}
           >
             DISCOVER OUR PROGRAMS
@@ -129,8 +128,8 @@ const DiscoverPrograms = () => {
           ) : (
             <div className="flex flex-col">
               {programsData[activeTab]?.map((prog, i) => (
-                <div 
-                  key={i} 
+                <div
+                  key={i}
                   className="flex flex-col md:flex-row gap-8 justify-between py-12"
                   style={{ borderBottom: i !== programsData[activeTab].length - 1 ? '1px solid rgba(240,236,226,0.1)' : 'none' }}
                 >

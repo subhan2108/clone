@@ -113,17 +113,16 @@ function CreamCard() {
   return (
     <div ref={ref} className="sticky mb-6" style={{ top: '80px' }}>
       <div
-        className={`flex flex-col md:flex-row w-full overflow-hidden rounded-xl transition-all duration-700 ease-out
+        className={`flex flex-col md:flex-row w-full overflow-hidden rounded-xl transition-all duration-700 ease-out min-h-[85vh] md:min-h-0 md:h-[clamp(480px,56vh,620px)]
           ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         style={{
-          height: 'clamp(480px, 56vh, 620px)',
           boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
         }}
       >
         {/* LEFT: cream text panel */}
         <div
-          className="flex flex-col justify-between p-8 md:p-12 flex-shrink-0"
-          style={{ width: 'clamp(290px, 38%, 470px)', background: '#f0ece2', color: '#111' }}
+          className="flex flex-col justify-between p-8 md:p-12 flex-shrink-0 w-full md:w-[38%] md:min-w-[290px] md:max-w-[470px]"
+          style={{ background: '#f0ece2', color: '#111' }}
         >
           {/* Arrows + dots */}
           <div className="flex items-center gap-3">
@@ -167,7 +166,7 @@ function CreamCard() {
         </div>
 
         {/* RIGHT: image carousel */}
-        <div className="relative flex-1 overflow-hidden">
+        <div className="relative flex-1 overflow-hidden min-h-[40vh] md:min-h-0">
           <ImageCarousel
             images={creamCard.images}
             activeIndex={imgIndex}
@@ -196,16 +195,15 @@ function DarkCard() {
   return (
     <div ref={ref} className="sticky mb-6" style={{ top: '116px' }}>
       <div
-        className={`flex w-full overflow-hidden rounded-xl transition-all duration-700 ease-out
+        className={`flex flex-col md:flex-row w-full overflow-hidden rounded-xl transition-all duration-700 ease-out min-h-[100vh] md:h-[100vh]
           ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         style={{
-          height: '100vh',
           boxShadow: '0 32px 100px rgba(0,0,0,0.85)',
           background: '#0b0b0b',
         }}
       >
         {/* LEFT: tall portrait image carousel (~47%) */}
-        <div className="relative flex-shrink-0 overflow-hidden" style={{ width: '47%' }}>
+        <div className="relative flex-shrink-0 overflow-hidden w-full md:w-[47%] h-[50vh] md:h-full">
           <ImageCarousel
             images={darkCard.images}
             activeIndex={imgIndex}
@@ -225,8 +223,8 @@ function DarkCard() {
 
           {/* TOP ~45%: text */}
           <div
-            className="flex flex-col justify-center px-10 md:px-14"
-            style={{ flex: '0 0 45%', paddingTop: '2rem', paddingBottom: '1.5rem' }}
+            className="flex flex-col justify-center px-6 md:px-14 flex-1 md:flex-none"
+            style={{ paddingTop: '2rem', paddingBottom: '1.5rem', flexBasis: '45%' }}
           >
             <h3
               className="font-serif leading-tight mb-4"

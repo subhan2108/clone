@@ -16,7 +16,7 @@ const MeetThePros = () => {
       name: "JUAN MARTÍN DIAZ",
       title: "CHIEF PADEL OFFICER",
       desc: "A padel legend from Argentina who dominated the sport for nearly two decades, holding the World Number 1 ranking for 13 consecutive years.",
-      image: "https://picsum.photos/seed/pro1/600/600",
+      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=600&auto=format&fit=crop",
       bgColor: "#e8e5db",
       // Each card will have custom start and end triggers for the scroll progress
       scrollRange: [0, 0.3],
@@ -25,7 +25,7 @@ const MeetThePros = () => {
       name: "GABI MEANA",
       title: "PADEL DIRECTOR",
       desc: "A former tennis pro from Northern Spain who moved to the US for college tennis, and now leads Reserve as a co-founder and a director.",
-      image: "https://picsum.photos/seed/pro2/600/600",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop",
       bgColor: "#6f886c",
       scrollRange: [0.15, 0.45],
     },
@@ -33,7 +33,7 @@ const MeetThePros = () => {
       name: "DIEGO RAMOS",
       title: "ELITE PRO",
       desc: "Diego Ramos, personal coach to Arturo Coello, is now based in Miami and available for private lessons. Ranked No. 1 in Uruguay, he's a former WPT top 30 player and held a No. 4 ranking in A1 Padel.",
-      image: "https://picsum.photos/seed/pro3/600/600",
+      image: "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?q=80&w=600&auto=format&fit=crop",
       bgColor: "#e8e5db",
       scrollRange: [0.3, 0.6],
     }
@@ -42,19 +42,19 @@ const MeetThePros = () => {
   return (
     <section ref={sectionRef} className="relative h-[300vh]" style={{ background: '#0a0a0a' }}>
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-center items-center px-6">
-        
+
         {/* Animated Heading */}
-        <motion.div 
+        <motion.div
           className="absolute top-[15%] text-center flex flex-col items-center w-full z-10"
           style={{ opacity: headingOpacity }}
         >
           <p className="text-[12px] uppercase tracking-[0.35em] mb-2 font-medium" style={{ color: '#c48f42' }}>THE EXPERTS</p>
-          <h2 
-            className="tracking-tighter font-serif whitespace-nowrap" 
-            style={{ 
-              color: '#f0ece2', 
+          <h2
+            className="tracking-tighter font-serif whitespace-normal md:whitespace-nowrap text-wrap text-center"
+            style={{
+              color: '#f0ece2',
               lineHeight: 0.9,
-              fontSize: 'clamp(5rem, 18vw, 17rem)' 
+              fontSize: 'clamp(3.5rem, 16vw, 17rem)'
             }}
           >
             Meet the Pros
@@ -63,16 +63,16 @@ const MeetThePros = () => {
 
         {/* Animated Cards Container */}
         <div className="absolute w-full px-6 flex justify-center z-20 h-full pointer-events-none">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-14 max-w-[1500px] w-full pt-[20vh] pointer-events-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 md:gap-14 max-w-[1500px] w-full pt-[20vh] pointer-events-auto">
             {pros.map((pro, index) => {
               // Create a unique Y-axis transform specifically for this card based on its scrollRange
               const cardY = useTransform(scrollYProgress, pro.scrollRange, ["120vh", "0vh"]);
-              
+
               return (
                 <motion.div
                   key={pro.name}
-                  className="rounded-xl p-5 md:p-7 flex flex-col text-black shadow-2xl relative"
-                  style={{ 
+                  className="col-start-1 row-start-1 md:col-auto md:row-auto rounded-xl p-5 md:p-7 flex flex-col text-black shadow-2xl relative"
+                  style={{
                     backgroundColor: pro.bgColor,
                     y: cardY,
                     height: 'max-content'
