@@ -22,19 +22,19 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
   const navLinks = [
     { name: "Our Story", id: "story" },
     { name: "Membership", id: "membership" },
-    { name: "Book", id: "book" },
+    // { name: "Book", id: "book" },
     { name: "Clubs", id: "clubs" },
-    { name: "Events", id: "events" },
+    // { name: "Events", id: "events" },
   ];
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || currentPage !== "home" ? "bg-black/95 backdrop-blur-md py-4" : "bg-transparent py-6"}`}>
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center">
-        
+
         {/* Left Section: Logo (flex-1 ensures it takes equal space) */}
         <div className="flex-1 flex justify-start">
-          <button 
-            onClick={() => onNavigate("home")} 
+          <button
+            onClick={() => onNavigate("home")}
             className="text-4xl font-serif italic tracking-tighter cursor-pointer hover:opacity-70 transition-opacity"
             style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
           >
@@ -61,7 +61,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
 
         {/* Right Section: CTA Button (flex-1 ensures it occupies equal space as the left) */}
         <div className="flex-1 flex justify-end">
-          <button 
+          <button
             onClick={() => onNavigate("membership")}
             className="hidden lg:block text-[9px] uppercase tracking-[0.25em] font-black py-2.5 px-7 rounded-full border border-white/30 hover:bg-white hover:text-black transition-all text-white whitespace-nowrap"
           >
