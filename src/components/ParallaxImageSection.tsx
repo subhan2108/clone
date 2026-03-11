@@ -25,7 +25,7 @@ const ParallaxImageSection = () => {
           <img
             src="/assets/banner.jpg"
             alt="The Pad Community"
-            className="w-full h-full object-cover opacity-70"
+            className="w-full h-full object-contain opacity-70"
           />
         </motion.div>
 

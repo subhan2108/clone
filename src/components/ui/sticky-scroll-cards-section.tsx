@@ -30,9 +30,9 @@ const creamCard = {
   tagline: "Delhi's Home for Padel.",
   buttonLabel: "Book Your Court",
   images: [
-    "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1461958508236-9a742665a0d5?q=80&w=2070&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=2074&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1646649851780-d9701b7c3c04?q=80&w=2000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1646649851800-48dba35edc76?q=80&w=2000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1646651105426-e8c8ee9badde?q=80&w=2000&auto=format&fit=crop",
   ],
 };
 
@@ -43,12 +43,12 @@ const darkCard = {
     "Experience the fastest growing sport in a social environment. Our pickleball sessions are perfect for meeting new people and staying active in the heart of Delhi.",
   buttonLabel: "Join a Social",
   images: [
-    "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=2007&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1627163439134-7a8c47e08208?q=80&w=2032&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=2069&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1646649852046-b758d2d573f3?q=80&w=2000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1646649852365-3e89e23dee7b?q=80&w=2000&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1642182800428-26d7fef8300c?q=80&w=2000&auto=format&fit=crop",
   ],
   thumbImage:
-    "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=800&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1646649852365-3e89e23dee7b?q=80&w=2000&auto=format&fit=crop",
 };
 
 /* ─────────────────────────────────────────────────────────────
