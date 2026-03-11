@@ -8,7 +8,7 @@ const OurStory = () => {
   return (
     <div className="bg-black text-white min-h-screen flex flex-col pt-32">
       {/* Hero Section */}
-      <section className="px-6 py-24 md:py-48 flex flex-col items-center justify-center text-center max-w-[1400px] mx-auto">
+      <section className="px-6 py-12 md:py-24 flex flex-col items-center justify-center text-center max-w-[1400px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -29,8 +29,8 @@ const OurStory = () => {
             <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium">
               The Pad is pioneering a new sports culture across India by creating players,
               fans and friends. Featuring 6 world-class Padel courts and 4 professional Pickleball courts,
-              this community built on and around the court will showcase the world’s newest, 
-              most exciting games. Through our clubs and tournaments at Gulmohar Park, 
+              this community built on and around the court will showcase the world’s newest,
+              most exciting games. Through our clubs and tournaments at Gulmohar Park,
               The Pad is the catalyst behind India's Padel revolution.
             </p>
           </motion.div>
@@ -132,24 +132,23 @@ const ScrollStatementSection = () => {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start start", "end end"],
   });
 
-  // Line grows from 0% to 100% as the section enters (0.1 to 0.3 range)
-  const scaleX = useTransform(scrollYProgress, [0.1, 0.35], [0, 1]);
+  const scaleX = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   // Words reveal sequentially after the line has significant progress
-  const opacity1 = useTransform(scrollYProgress, [0.35, 0.45], [0, 1]);
-  const y1 = useTransform(scrollYProgress, [0.35, 0.45], [20, 0]);
+  const opacity1 = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const y1 = useTransform(scrollYProgress, [0.2, 0.4], [20, 0]);
 
-  const opacity2 = useTransform(scrollYProgress, [0.5, 0.6], [0, 1]);
-  const y2 = useTransform(scrollYProgress, [0.5, 0.6], [20, 0]);
+  const opacity2 = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
+  const y2 = useTransform(scrollYProgress, [0.4, 0.6], [20, 0]);
 
-  const opacity3 = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
-  const y3 = useTransform(scrollYProgress, [0.65, 0.75], [20, 0]);
+  const opacity3 = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
+  const y3 = useTransform(scrollYProgress, [0.6, 0.8], [20, 0]);
 
   return (
-    <section ref={containerRef} className="relative h-[200vh] bg-black">
+    <section ref={containerRef} className="relative h-[150vh] bg-black">
       <div className="sticky top-0 h-screen w-full flex flex-col justify-center px-6 md:px-12 overflow-hidden">
         <div className="max-w-[1400px] mx-auto w-full relative pt-12">
           {/* The Growing Line - Starts growing as soon as it enters viewport */}
@@ -159,7 +158,7 @@ const ScrollStatementSection = () => {
           />
 
           {/* Three Columns - Animated One by One */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pt-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pt-12">
             <motion.div style={{ opacity: opacity1, y: y1 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
                 THE PAD <br /> IS THE FUTURE OF <br /> PADEL

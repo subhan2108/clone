@@ -28,7 +28,7 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || !isHomePage ? "bg-black/95 backdrop-blur-md py-4" : "bg-transparent py-6"}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || !isHomePage ? "bg-black/95 backdrop-blur-md py-2" : "bg-transparent py-3"}`}>
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center">
 
         {/* Left Section: Logo (flex-1 ensures it takes equal space) */}
@@ -37,7 +37,7 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity"
           >
-            <img src="/assets/logo.png" alt="The Pad Logo" className="h-16 w-auto" />
+            <img src="/assets/logo.png" alt="The Pad Logo" className="h-16 md:h-20 w-auto" />
           </Link>
         </div>
 
@@ -81,7 +81,7 @@ const Navbar = () => {
           className="lg:hidden absolute top-0 left-0 w-full h-screen bg-black z-50 p-8 flex flex-col"
         >
           <div className="flex justify-between items-center mb-12">
-            <img src="/assets/logo.png" alt="The Pad Logo" className="h-20 w-auto" />
+            <img src="/assets/logo.png" alt="The Pad Logo" className="h-28 w-auto" />
             <button onClick={() => setIsMobileMenuOpen(false)}><X size={32} /></button>
           </div>
           <div className="flex flex-col gap-8">
