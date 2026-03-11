@@ -3,9 +3,9 @@ import { useState, useEffect, useRef } from "react";
 const DiscoverPrograms = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [fontSize, setFontSize] = useState(5); // rem units
-  const [activeTab, setActiveTab] = useState("DESIGN DISTRICT");
+  const [activeTab, setActiveTab] = useState("DELHI");
 
-  const tabs = ["DESIGN DISTRICT", "SOLÉ MIA", "HUDSON YARDS"];
+  const tabs = ["DELHI"];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -33,17 +33,12 @@ const DiscoverPrograms = () => {
   }, []);
 
   const programsData: Record<string, { title: string; desc: string; price: string; }[]> = {
-    "DESIGN DISTRICT": [
-      { title: "WOMEN'S BEGINNER", desc: "Perfect for newcomers and those looking to refine their foundational skills, this clinic provides a supportive environment for learning and improvement.", price: "$40 / MEMBER: $32" },
-      { title: "MIXED HIGH BEGINNER", desc: "Ideal for players with some experience, this clinic focuses on advancing your technique and strategic understanding.", price: "$40 / MEMBER: $32" },
-      { title: "MIXED INTERMEDIATE", desc: "Experience match play with coach guidance to apply your skills in real-game scenarios. Learn to make strategic decisions and enhance your overall court presence.", price: "$40 / MEMBER: $32" },
-      { title: "MIXED ADVANCED", desc: "Elevate your game with our focused sessions designed to enhance consistency and refine court tactics. Build on your existing skills through structured drills and engaging point-play scenarios. Perfect for players looking to take their game to the next level.", price: "$40 / MEMBER: $32" }
-    ],
-    "SOLÉ MIA": [
-      { title: "VOLLEY MACHINE", desc: "Sharpen your reflexes and improve consistency with a focused session on the volley machine — perfect for dialing in control, timing, and precision.", price: "$25 / MEMBER: $20" },
-      { title: "WOMEN'S BEGINNER", desc: "An introduction to padel that focuses on building a strong foundation of essential skills and techniques. Our coaches guide you step-by-step to help you feel confident and comfortable on the court.", price: "$45 / MEMBER: $36" }
-    ],
-    "HUDSON YARDS": []
+    "DELHI": [
+      { title: "PADEL CLINICS", desc: "Professional grade courts designed for competitive and casual players. Perfect for newcomers and those looking to refine their foundational skills.", price: "INQUIRY REQUIRED" },
+      { title: "PICKLEBALL SOCIALS", desc: "Fast, social and addictive — pickleball courts built for everyone. Join our vibrant community for weekly social matches.", price: "INQUIRY REQUIRED" },
+      { title: "MIXED INTERMEDIATE", desc: "Experience match play with coach guidance to apply your skills in real-game scenarios. Learn to make strategic decisions and enhance your overall court presence.", price: "INQUIRY REQUIRED" },
+      { title: "LEAGUES & TOURNAMENTS", desc: "Join leagues, tournaments and social matches hosted weekly at Gulmohar Park. The Pad is more than a court — it’s a community.", price: "INQUIRY REQUIRED" }
+    ]
   };
 
   return (
@@ -60,7 +55,7 @@ const DiscoverPrograms = () => {
             className="font-black uppercase leading-none transition-none select-none text-wrap md:whitespace-nowrap"
             style={{
               fontSize: `clamp(1.5rem, ${fontSize}vw, 3.5rem)`,
-              fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
+              fontFamily: "'Poppins', sans-serif",
               color: '#f0ece2',
               letterSpacing: '-0.05em', // Tighter spacing to match screenshot
               lineHeight: 1,
@@ -81,7 +76,7 @@ const DiscoverPrograms = () => {
             lineHeight: 1.75,
           }}
         >
-          At Reserve, we offer a variety of dynamic and engaging padel clinics tailored to suit
+          At The Pad, we offer a variety of dynamic and engaging padel clinics tailored to suit
           players of all levels. Our programs are designed to enhance your padel skills, whether
           you're a beginner or a seasoned player.
         </p>

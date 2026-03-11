@@ -43,12 +43,12 @@ const ClubAmenities = () => {
   }, []);
 
   const amenities = [
-    { text: "New\nEquipment" },
-    { text: "Showers and\nLocker Rooms" },
-    { text: "Coffee\nand Snacks" },
-    { text: "Juice\nBar" },
-    { text: "Cold\nPlunge" },
-    { text: "Sauna and\nSteam Room" },
+    { text: "Padel\nCourts" },
+    { text: "Pickleball\nCourts" },
+    { text: "Gulmohar Park\nSetting" },
+    { text: "Professional\nCoaching" },
+    { text: "Social\nEvents" },
+    { text: "Community\nLeagues" },
   ];
 
   return (
@@ -60,7 +60,7 @@ const ClubAmenities = () => {
             style={{
               color: '#f0ece2',
               lineHeight: 1,
-              fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
+              fontFamily: "'Poppins', sans-serif",
               letterSpacing: '-0.05em',
               fontSize: `clamp(2rem, ${fontSize}vw, 6rem)`,
               willChange: 'font-size, transform',
@@ -71,7 +71,7 @@ const ClubAmenities = () => {
             OUR CLUB
           </h2>
           <p className="max-w-4xl text-center leading-relaxed font-medium" style={{ color: 'rgba(240,236,226,0.65)', fontSize: '1.05rem', fontFamily: 'sans-serif' }}>
-            At Reserve, each of our clubs offers a unique selection of amenities from locker rooms, showers and cold plunges to a wellness center that features a steam room and sauna. Whether you're here to play, relax, or socialize, our clubs provide the perfect environment for every aspect of your visit.
+            The Pad is Delhi’s premier destination for Padel and Pickleball. Designed for athletes, beginners, and communities, our facility in Gulmohar Park combines world-class courts with a vibrant social atmosphere.
           </p>
         </div>
 

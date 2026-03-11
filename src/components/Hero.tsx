@@ -1,39 +1,75 @@
 import { motion, useScroll, useTransform } from "motion/react";
 
+import { useState, useEffect } from "react";
+
 const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const [showVideo, setShowVideo] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowVideo(true);
+    }, 2800); // 2.8s delay for the video reveal
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-black">
-      {/* Background Image: Moody Padel Court */}
+      {/* Background Layer: Banner Image (Shown initially) */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/50 z-10" />
+        <div className="absolute inset-0 bg-black/40 z-10" />
         <img
-          src="https://images.unsplash.com/photo-1622279457486-640fc294f258?q=80&w=1920&auto=format&fit=crop"
-          alt="Reserve Padel Court Atmosphere"
+          src="/assets/banner.jpg"
+          alt="The Pad Initial"
           className="w-full h-full object-cover grayscale brightness-75 scale-110"
-          referrerPolicy="no-referrer"
         />
+
+        {/* Video Layer: Fades in after delay */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showVideo ? 1 : 0 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+          className="absolute inset-0 z-20"
+        >
+          <video
+            src="/assets/serving-soon.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover grayscale brightness-75 scale-110"
+          />
+        </motion.div>
+
         {/* Deep bottom gradient to blend into next section */}
-        <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black via-black/20 to-transparent z-20" />
+        <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black via-black/20 to-transparent z-30" />
       </motion.div>
 
       {/* Main Hero Content */}
-      <div className="relative z-30 text-center px-6 mt-20">
+      <div className="relative z-40 text-center px-6 mt-20">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="text-reserve-accent text-xs uppercase tracking-[0.6em] mb-4 font-bold"
+        >
+          Delhi's Premier Padel Destination
+        </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="text-7xl md:text-9xl lg:text-[14rem] font-serif font-medium leading-[0.8] tracking-tighter mb-16 italic"
+          className="text-7xl md:text-9xl lg:text-[14rem] font-sans font-black leading-[0.8] tracking-tighter mb-16 uppercase"
           style={{
             color: '#f0ece2',
             textShadow: '0 20px 40px rgba(0,0,0,0.5)',
-            letterSpacing: '-0.04em'
+            letterSpacing: '-0.04em',
+            fontFamily: "'Poppins', sans-serif"
           }}
         >
-          Reserve
+          The Pad
         </motion.h1>
 
         {/* The Pill-Shaped Button Group */}
@@ -43,10 +79,10 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.8 }}
           className="inline-flex flex-col md:flex-row items-center border border-white/20 rounded-[50px] p-1.5 backdrop-blur-sm bg-white/5"
         >
-          <button className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-black transition-all rounded-[40px] duration-500 whitespace-nowrap">
+          <button className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent transition-all rounded-[40px] duration-500 whitespace-nowrap">
             Book a Court
           </button>
-          <button className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-white hover:text-black transition-all rounded-[40px] duration-500 whitespace-nowrap">
+          <button className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent transition-all rounded-[40px] duration-500 whitespace-nowrap">
             Become a Member
           </button>
         </motion.div>

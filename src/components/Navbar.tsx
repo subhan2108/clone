@@ -20,11 +20,11 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
   }, []);
 
   const navLinks = [
-    { name: "Our Story", id: "story" },
+    { name: "Home", id: "home" },
+    { name: "Courts", id: "clubs" },
     { name: "Membership", id: "membership" },
-    // { name: "Book", id: "book" },
-    { name: "Clubs", id: "clubs" },
-    // { name: "Events", id: "events" },
+    { name: "Our Story", id: "story" },
+    { name: "Contact", id: "contact" }
   ];
 
   return (
@@ -35,10 +35,9 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
         <div className="flex-1 flex justify-start">
           <button
             onClick={() => onNavigate("home")}
-            className="text-4xl font-serif italic tracking-tighter cursor-pointer hover:opacity-70 transition-opacity"
-            style={{ fontFamily: "'Playfair Display', serif", fontWeight: 400 }}
+            className="flex items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity"
           >
-            R
+            <img src="/assets/logo.png" alt="The Pad Logo" className="h-10 w-auto" />
           </button>
         </div>
 
@@ -48,11 +47,13 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
             <button
               key={link.name}
               onClick={() => {
-                if (link.id === "story") onNavigate("story");
+                if (link.id === "home") onNavigate("home");
+                else if (link.id === "story") onNavigate("story");
                 else if (link.id === "clubs") onNavigate("clubs");
                 else if (link.id === "membership") onNavigate("membership");
+                // contact will just scroll to footer or stay as is
               }}
-              className={`text-[10px] uppercase tracking-[0.2em] font-bold transition-all cursor-pointer whitespace-nowrap ${currentPage === link.id ? "text-white opacity-100" : "text-white/60 hover:text-white hover:opacity-100"}`}
+              className={`text-[10px] uppercase tracking-[0.2em] font-bold transition-all cursor-pointer whitespace-nowrap ${currentPage === link.id ? "text-reserve-accent opacity-100" : "text-white/60 hover:text-white hover:opacity-100"}`}
             >
               {link.name}
             </button>
@@ -63,7 +64,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
         <div className="flex-1 flex justify-end">
           <button
             onClick={() => onNavigate("membership")}
-            className="hidden lg:block text-[9px] uppercase tracking-[0.25em] font-black py-2.5 px-7 rounded-full border border-white/30 hover:bg-white hover:text-black transition-all text-white whitespace-nowrap"
+            className="hidden lg:block text-[9px] uppercase tracking-[0.25em] font-black py-2.5 px-7 rounded-full border border-reserve-accent hover:bg-reserve-accent hover:text-white transition-all text-white whitespace-nowrap"
           >
             Become a Member
           </button>
@@ -86,7 +87,7 @@ const Navbar = ({ onNavigate, currentPage }: NavbarProps) => {
           className="lg:hidden absolute top-0 left-0 w-full h-screen bg-black z-50 p-8 flex flex-col"
         >
           <div className="flex justify-between items-center mb-12">
-            <span className="text-4xl font-serif italic">R</span>
+            <img src="/assets/logo.png" alt="The Pad Logo" className="h-10 w-auto" />
             <button onClick={() => setIsMobileMenuOpen(false)}><X size={32} /></button>
           </div>
           <div className="flex flex-col gap-8">

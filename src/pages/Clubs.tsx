@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import Footer from "../components/Footer";
 
@@ -6,24 +7,16 @@ interface ClubsProps {
 }
 
 const Clubs = ({ onNavigate }: ClubsProps) => {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const clubs = [
     {
-      name: "Miami Seaplane",
-      description: "Our vibrant social hub. Nestled in the heart of Miami, our Seaplane club offers the ultimate on-and-off court experience.",
+      name: "The Pad Delhi",
+      description: "Experience the intersection of community, sport, and urban energy at Delhi’s premier Padel and Pickleball destination. Featuring 6 world-class Padel courts and 4 professional Pickleball courts, we combine high-performance play with a vibrant social atmosphere.",
       image: "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=1200&auto=format&fit=crop",
-      status: "Open Now"
-    },
-    {
-      name: "Hudson Yards",
-      description: "Full club serving soon. Play goes on at our iconic riverside venue at Hudson Yards, where temporary outdoor courts are now open.",
-      image: "https://images.unsplash.com/photo-1461958508236-9a742665a0d5?q=80&w=1200&auto=format&fit=crop",
-      status: "Coming Soon"
-    },
-    {
-      name: "Design District",
-      description: "The intersection of art and sport. A boutique padel experience in the heart of Miami's most creative neighborhood.",
-      image: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?q=80&w=1200&auto=format&fit=crop",
-      status: "Open Now"
+      status: "Opening Soon: Gulmohar Park"
     }
   ];
 
@@ -36,9 +29,9 @@ const Clubs = ({ onNavigate }: ClubsProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-xs uppercase tracking-[0.4em] text-reserve-accent mb-8">Locations</p>
-          <h1 className="text-5xl md:text-8xl font-serif leading-tight mb-8">
-            Always More Than <br /> <span className="italic">Just Padel.</span>
+          <p className="text-xs uppercase tracking-[0.4em] text-reserve-accent mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>Locations</p>
+          <h1 className="text-5xl md:text-8xl font-black uppercase leading-tight mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            Always More Than <br /> Just Padel.
           </h1>
           <p className="text-xl text-white/60 max-w-2xl mx-auto leading-relaxed">
             Discover our collection of premier padel clubs, each designed to offer
@@ -95,7 +88,7 @@ const Clubs = ({ onNavigate }: ClubsProps) => {
           viewport={{ once: true }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-5xl md:text-7xl font-serif mb-8">The Original <br /> <span className="italic">Social Net-Work.</span></h2>
+          <h2 className="text-5xl md:text-7xl font-black uppercase mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>The Original Social Net-Work.</h2>
           <p className="text-xl text-black/60 mb-12 leading-relaxed">
             Join our community for exclusive benefits, events and early access to new locations.
           </p>
@@ -110,16 +103,63 @@ const Clubs = ({ onNavigate }: ClubsProps) => {
 
       {/* Signup Section */}
       <section className="py-32 px-6 max-w-3xl mx-auto text-center">
-        <h3 className="text-3xl font-serif mb-8">Stay in the game</h3>
+        <h3 className="text-3xl font-black uppercase mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>Stay in the game</h3>
         <p className="text-white/50 mb-12">Join our community for exclusive benefits, events and early access.</p>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <input
-            type="email"
-            placeholder="Email Address"
-            className="flex-1 bg-white/5 border border-white/10 px-6 py-4 outline-none focus:border-reserve-accent transition-colors"
-          />
-          <button className="btn-primary px-12">Sign Up Now</button>
-        </div>
+        
+        {status === 'success' ? (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="p-8 border border-reserve-accent/30 bg-reserve-accent/5 rounded-xl"
+          >
+            <h4 className="text-2xl font-black uppercase text-reserve-accent mb-2">YOU'RE IN!</h4>
+            <p className="text-white/60 font-medium">We'll keep you posted on our grand opening.</p>
+          </motion.div>
+        ) : (
+          <form 
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setLoading(true);
+              try {
+                // Remove /wp/v2 and use our custom endpoint
+                const wpUrl = import.meta.env.VITE_WP_API_URL.replace('/wp/v2', '');
+                const response = await fetch(`${wpUrl}/thepad/v1/submit-inquiry`, {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ email: email })
+                });
+                
+                if (response.ok) {
+                  setStatus('success');
+                } else {
+                  console.error("Server responded with:", await response.text());
+                  setStatus('error');
+                }
+              } catch (err) {
+                console.error("Submission failed", err);
+                setStatus('error');
+              } finally {
+                setLoading(false);
+              }
+            }}
+            className="flex flex-col sm:flex-row gap-4"
+          >
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email Address"
+              className="flex-1 bg-white/5 border border-white/10 px-6 py-4 outline-none focus:border-reserve-accent transition-colors text-white"
+            />
+            <button 
+              disabled={loading}
+              className="btn-primary px-12 disabled:opacity-50"
+            >
+              {loading ? "Sending..." : "Sign Up Now"}
+            </button>
+          </form>
+        )}
       </section>
 
       <Footer onNavigate={onNavigate} />

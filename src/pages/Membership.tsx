@@ -25,11 +25,7 @@ const Membership = ({ onNavigate }: MembershipProps) => {
   ];
 
   const centers = [
-    { name: "Reserve Seaplane", location: "Miami, FL" },
-    { name: "Reserve Solé Mia", location: "North Miami, FL" },
-    { name: "Reserve Hudson Yards", location: "New York, NY" },
-    { name: "Reserve Design District", location: "Miami, FL" },
-    { name: "Reserve Upper East Side", location: "New York, NY" }
+    { name: "THE PAD DELHI", location: "GULMOHAR PARK" }
   ];
 
   return (
@@ -42,9 +38,9 @@ const Membership = ({ onNavigate }: MembershipProps) => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <p className="text-xs uppercase tracking-[0.4em] text-reserve-accent mb-8">Membership & Solutions</p>
-          <h1 className="text-5xl md:text-8xl font-serif leading-tight mb-8">
-            Premium Court <br /> <span className="italic">Solutions.</span>
+          <p className="text-xs uppercase tracking-[0.4em] text-reserve-accent mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>Membership & Solutions</p>
+          <h1 className="text-5xl md:text-8xl font-black uppercase leading-tight mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            Premium Court <br /> Solutions.
           </h1>
           <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
             Revamp your ventures with our courts, where every game leaps into a new realm of excitement!
@@ -89,11 +85,11 @@ const Membership = ({ onNavigate }: MembershipProps) => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-serif mb-12">Elevating Padel Excellence Through Innovation</h2>
+            <h2 className="text-4xl md:text-6xl font-black uppercase mb-12" style={{ fontFamily: "'Poppins', sans-serif" }}>Elevating Padel Excellence Through Innovation</h2>
             <div className="text-lg text-black/70 space-y-6 leading-relaxed">
               <p>
-                At Reserve, we believe that excellence begins with collaboration and innovation.
-                We're proud to partner with industry leaders renowned for their cutting-edge manufacturing expertise.
+                At The Pad, we believe that excellence begins with collaboration and innovation.
+              We're proud to partner with industry leaders renowned for their cutting-edge manufacturing expertise.
               </p>
               <p>
                 Our collaboration marks a pivotal moment in Padel's evolution, where tradition meets technology.
@@ -130,7 +126,7 @@ const Membership = ({ onNavigate }: MembershipProps) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-6xl font-serif mb-12">Where Passion for Padel Meets a Partnership with Excellence.</h2>
+          <h2 className="text-4xl md:text-6xl font-black uppercase mb-12" style={{ fontFamily: "'Poppins', sans-serif" }}>Where Passion Meets Excellence.</h2>
           <p className="text-xl text-white/60 mb-12 leading-relaxed">
             Ready to Fuel your Padel Obsession? Whether you're dreaming of building courts,
             starting a club, or franchising — we've got you covered.
@@ -151,8 +147,8 @@ const Membership = ({ onNavigate }: MembershipProps) => {
           <div className="absolute inset-0 bg-reserve-black/60" />
         </div>
         <div className="relative z-10 text-center px-6">
-          <h2 className="text-4xl md:text-7xl font-serif mb-4">Building the foundation for champions,</h2>
-          <p className="text-2xl md:text-4xl font-serif italic text-reserve-accent">one court at a time.</p>
+          <h2 className="text-4xl md:text-7xl font-black uppercase mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>Building the foundation,</h2>
+          <p className="text-2xl md:text-4xl font-sans font-medium uppercase tracking-widest text-reserve-accent" style={{ fontFamily: "'Poppins', sans-serif" }}>one court at a time.</p>
         </div>
       </section>
 
@@ -161,7 +157,7 @@ const Membership = ({ onNavigate }: MembershipProps) => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div>
             <p className="text-xs uppercase tracking-widest text-reserve-accent mb-4">Our Portfolio</p>
-            <h2 className="text-4xl md:text-6xl font-serif">Explore our Padel Courts</h2>
+            <h2 className="text-4xl md:text-6xl font-black uppercase" style={{ fontFamily: "'Poppins', sans-serif" }}>Explore our Courts</h2>
             <p className="text-xl text-white/50 italic mt-4">Where precision meets innovation.</p>
           </div>
           <button className="btn-outline">View Gallery</button>
@@ -192,7 +188,7 @@ const Membership = ({ onNavigate }: MembershipProps) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-5xl font-serif mb-8">Dive into the coaches' profiles and uncover your winning advantage.</h2>
+          <h2 className="text-3xl md:text-5xl font-black uppercase mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>Uncover your winning advantage.</h2>
           <button className="px-12 py-5 bg-reserve-black text-white uppercase tracking-widest hover:bg-white hover:text-reserve-black transition-all">
             View Coaches' Profiles
           </button>

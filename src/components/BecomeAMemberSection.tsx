@@ -43,17 +43,23 @@ const BecomeAMemberSection = ({ onNavigate }: BecomeAMemberSectionProps) => {
 
         {/* The Overlapping Footer Card (COME PLAY!) */}
         <motion.div
+          className="absolute w-[92%] max-w-[650px] aspect-[1/1.1] rounded-[40px] p-8 md:p-16 flex flex-col items-center justify-center text-center shadow-[0_50px_100px_rgba(0,0,0,0.6)] overflow-hidden"
           style={{
             y: cardY,
             scale: cardScale,
-            zIndex: 30
+            zIndex: 30,
+            backgroundImage: 'url(/assets/mockup.jpg)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
-          className="absolute w-[92%] max-w-[650px] aspect-[1/1.1] bg-[#2d5a31] rounded-[40px] p-8 md:p-16 flex flex-col items-center justify-center text-center shadow-[0_50px_100px_rgba(0,0,0,0.6)]"
         >
-          <h2 className="text-4xl md:text-6xl font-black uppercase mb-8 text-[#0a0a0a] tracking-tight" style={{ fontFamily: 'Arial Black, sans-serif' }}>
+          {/* dark overlay for text contrast */}
+          <div className="absolute inset-0 bg-black/40 z-0" />
+
+          <h2 className="relative z-10 text-4xl md:text-6xl font-black uppercase mb-8 text-white tracking-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
             COME PLAY!
           </h2>
-          <p className="text-lg md:text-2xl text-[#0a0a0a] font-medium leading-tight mb-14 max-w-lg">
+          <p className="relative z-10 text-lg md:text-2xl text-white font-medium leading-tight mb-14 max-w-lg">
             Built for a community of people that embrace a life of athletic elegance; the spirit of competition and the pleasure of style.
           </p>
 
@@ -61,10 +67,10 @@ const BecomeAMemberSection = ({ onNavigate }: BecomeAMemberSectionProps) => {
             onClick={() => onNavigate("membership")}
             className="group relative flex items-center justify-center"
           >
-            <div className="px-12 py-5 bg-[#0a0a0a] rounded-full text-[#f0ece2] uppercase tracking-[0.2em] text-xs font-bold transition-transform duration-300 group-hover:scale-105">
+            <div className="px-12 py-5 bg-reserve-accent rounded-full text-white uppercase tracking-[0.2em] text-xs font-bold transition-transform duration-300 group-hover:scale-105">
               Become a Member
             </div>
-            <div className="absolute inset-[-8px] border border-[#0a0a0a]/30 rounded-full transition-transform duration-500 group-hover:scale-110" />
+            <div className="absolute inset-[-8px] border border-reserve-accent/30 rounded-full transition-transform duration-500 group-hover:scale-110" />
           </button>
         </motion.div>
       </div>

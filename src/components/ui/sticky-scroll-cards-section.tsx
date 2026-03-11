@@ -1,18 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+export interface CardData {
+  subtitle: string;
+  title: string;
+  description: string;
+  detail?: string;
+  tagline?: string;
+  buttonLabel: string;
+  images: string[];
+  thumbImage?: string;
+}
+
+interface StickyLatestSectionProps {
+  creamCard?: CardData;
+  darkCard?: CardData;
+}
+
 /* ─────────────────────────────────────────────────────────────
    DATA
 ───────────────────────────────────────────────────────────── */
 
 const creamCard = {
-  subtitle: "WHERE LIFESTYLE AND PERFORMANCE MEET",
-  title: "RESERVE COURTS",
+  subtitle: "DELHI'S PREMIER PADEL DESTINATION",
+  title: "PADEL COURTS EXHIBITION",
   description:
-    "Reserve Courts delivers a refined approach to padel court design — offering custom-built installations for private residences, real estate developments, and select hospitality spaces.",
+    "The Pad delivers professional-grade padel courts in Gulmohar Park, designed for both competitive edge and casual style.",
   detail:
-    "With a focus on craftsmanship, integration, and timeless design, each court is created to complement its environment while upholding the highest standards of play.",
-  tagline: "Rooted in lifestyle, built for performance.",
-  buttonLabel: "Inquire Here",
+    "With a focus on urban energy and craftsmanship, each court is built to uphold the highest standards of international play while fostering a vibrant community.",
+  tagline: "Delhi's Home for Padel.",
+  buttonLabel: "Book Your Court",
   images: [
     "https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2070&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1461958508236-9a742665a0d5?q=80&w=2070&auto=format&fit=crop",
@@ -21,11 +37,11 @@ const creamCard = {
 };
 
 const darkCard = {
-  subtitle: "PRIVATE COACHING",
-  title: "Elevate Your Game.",
+  subtitle: "SOCIAL & ADDICTIVE",
+  title: "PICKLEBALL SOCIALS",
   description:
-    "Private Lessons offer one-on-one instruction with our professional coaches, tailored to your level and focused on refining technique, strategy, and overall performance on court.",
-  buttonLabel: "Inquire Today",
+    "Experience the fastest growing sport in a social environment. Our pickleball sessions are perfect for meeting new people and staying active in the heart of Delhi.",
+  buttonLabel: "Join a Social",
   images: [
     "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=2007&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1627163439134-7a8c47e08208?q=80&w=2032&auto=format&fit=crop",
@@ -74,7 +90,13 @@ function useCarousel(total: number) {
 /* ─────────────────────────────────────────────────────────────
    MAIN EXPORT
 ───────────────────────────────────────────────────────────── */
-export function StickyLatestSection() {
+export function StickyLatestSection({ 
+  creamCard: customCream, 
+  darkCard: customDark 
+}: StickyLatestSectionProps) {
+  const activeCream = customCream || creamCard;
+  const activeDark = customDark || darkCard;
+
   return (
     <section className="py-16 w-full" style={{ background: '#0a0a0a' }}>
 
@@ -86,17 +108,17 @@ export function StickyLatestSection() {
             fontSize: 'clamp(4rem, 14vw, 13rem)',
             letterSpacing: '-0.02em',
             color: '#f0ece2',
-            fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
+            fontFamily: "'Poppins', sans-serif",
           }}
         >
-          THE LATEST
+          LIFE AT <br /> THE PAD
         </h2>
       </div>
 
       {/* ── STACKING CARDS ── */}
       <div className="relative px-4 md:px-8" style={{ paddingBottom: '10vh' }}>
-        <CreamCard />
-        <DarkCard />
+        <CreamCard card={activeCream} />
+        <DarkCard card={activeDark} />
       </div>
 
     </section>
@@ -106,9 +128,9 @@ export function StickyLatestSection() {
 /* ─────────────────────────────────────────────────────────────
    CARD 1 — CREAM  (text left · image carousel right · sticky index 0)
 ───────────────────────────────────────────────────────────── */
-function CreamCard() {
+function CreamCard({ card }: { card: CardData }) {
   const [ref, inView] = useInView();
-  const { imgIndex, setImgIndex, fading, change } = useCarousel(creamCard.images.length);
+  const { imgIndex, setImgIndex, fading, change } = useCarousel(card.images.length);
 
   return (
     <div ref={ref} className="sticky mb-6" style={{ top: '80px' }}>
@@ -128,56 +150,60 @@ function CreamCard() {
           <div className="flex items-center gap-3">
             <ArrowBtn onClick={() => change(-1)} dir="left" dark />
             <ArrowBtn onClick={() => change(1)} dir="right" dark />
-            <Dots total={creamCard.images.length} active={imgIndex} onDot={setImgIndex} dark />
+            <Dots total={card.images.length} active={imgIndex} onDot={setImgIndex} dark />
           </div>
 
           {/* Text */}
           <div className="flex flex-col gap-4 flex-1 justify-center mt-6">
             <p className="text-[10px] font-bold uppercase tracking-[0.22em]" style={{ color: '#555' }}>
-              {creamCard.subtitle}
+              {card.subtitle}
             </p>
             <h3
               className="font-black uppercase leading-none"
               style={{
                 fontSize: 'clamp(1.5rem, 2.8vw, 2.5rem)',
                 letterSpacing: '-0.02em',
-                fontFamily: "'Arial Black', 'Helvetica Neue', sans-serif",
+                fontFamily: "'Poppins', sans-serif",
                 color: '#0d0d0d',
               }}
             >
-              {creamCard.title}
+              {card.title}
             </h3>
             <p className="text-sm leading-relaxed" style={{ color: '#444', maxWidth: '340px' }}>
-              {creamCard.description}
+              {card.description}
             </p>
-            <p className="text-sm leading-relaxed" style={{ color: '#444', maxWidth: '340px' }}>
-              {creamCard.detail}
-            </p>
-            <p className="text-sm italic" style={{ color: '#666' }}>{creamCard.tagline}</p>
+            {card.detail && (
+              <p className="text-sm leading-relaxed" style={{ color: '#444', maxWidth: '340px' }}>
+                {card.detail}
+              </p>
+            )}
+            {card.tagline && (
+              <p className="text-sm italic" style={{ color: '#666' }}>{card.tagline}</p>
+            )}
           </div>
 
           {/* CTA */}
           <button
             className="self-start mt-6 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 hover:scale-105"
-            style={{ background: '#1a3a2a', color: '#fff' }}
+            style={{ background: '#FF6A00', color: '#fff' }}
           >
-            {creamCard.buttonLabel}
+            {card.buttonLabel}
           </button>
         </div>
 
         {/* RIGHT: image carousel */}
         <div className="relative flex-1 overflow-hidden min-h-[40vh] md:min-h-0">
           <ImageCarousel
-            images={creamCard.images}
+            images={card.images}
             activeIndex={imgIndex}
             fading={fading}
-            title={creamCard.title}
+            title={card.title}
           />
           <div
             className="absolute bottom-5 right-5 text-xs uppercase tracking-widest px-3 py-1.5 rounded-full"
             style={{ background: 'rgba(0,0,0,0.45)', color: '#fff', backdropFilter: 'blur(8px)' }}
           >
-            {imgIndex + 1} / {creamCard.images.length}
+            {imgIndex + 1} / {card.images.length}
           </div>
         </div>
       </div>
@@ -188,9 +214,9 @@ function CreamCard() {
 /* ─────────────────────────────────────────────────────────────
    CARD 2 — DARK  (portrait image left · text+thumb right · sticky index 1 · 100vh)
 ───────────────────────────────────────────────────────────── */
-function DarkCard() {
+function DarkCard({ card }: { card: CardData }) {
   const [ref, inView] = useInView();
-  const { imgIndex, setImgIndex, fading, change } = useCarousel(darkCard.images.length);
+  const { imgIndex, setImgIndex, fading, change } = useCarousel(card.images.length);
 
   return (
     <div ref={ref} className="sticky mb-6" style={{ top: '116px' }}>
@@ -205,16 +231,16 @@ function DarkCard() {
         {/* LEFT: tall portrait image carousel (~47%) */}
         <div className="relative flex-shrink-0 overflow-hidden w-full md:w-[47%] h-[50vh] md:h-full">
           <ImageCarousel
-            images={darkCard.images}
+            images={card.images}
             activeIndex={imgIndex}
             fading={fading}
-            title={darkCard.title}
+            title={card.title}
           />
           {/* Arrow controls bottom-left */}
           <div className="absolute bottom-5 left-5 z-10 flex items-center gap-2">
             <ArrowBtn onClick={() => change(-1)} dir="left" dark={false} />
             <ArrowBtn onClick={() => change(1)} dir="right" dark={false} />
-            <Dots total={darkCard.images.length} active={imgIndex} onDot={setImgIndex} dark={false} />
+            <Dots total={card.images.length} active={imgIndex} onDot={setImgIndex} dark={false} />
           </div>
         </div>
 
@@ -227,15 +253,15 @@ function DarkCard() {
             style={{ paddingTop: '2rem', paddingBottom: '1.5rem', flexBasis: '45%' }}
           >
             <h3
-              className="font-serif leading-tight mb-4"
+              className="font-black uppercase leading-tight mb-4"
               style={{
                 fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)',
-                fontWeight: 600,
                 color: '#f0ece2',
                 letterSpacing: '-0.01em',
+                fontFamily: "'Poppins', sans-serif"
               }}
             >
-              {darkCard.title}
+              {card.title}
             </h3>
             <p
               className="leading-relaxed mb-6"
@@ -246,7 +272,7 @@ function DarkCard() {
                 lineHeight: 1.65,
               }}
             >
-              {darkCard.description}
+              {card.description}
             </p>
             {/* Ghost pill button */}
             <button
@@ -267,20 +293,20 @@ function DarkCard() {
                 (e.currentTarget as HTMLButtonElement).style.background = 'transparent';
               }}
             >
-              {darkCard.buttonLabel}
+              {card.buttonLabel}
             </button>
           </div>
 
           {/* BOTTOM ~55%: thumbnail image */}
           <div className="flex-1 overflow-hidden relative">
             <img
-              src={darkCard.thumbImage}
+              src={card.thumbImage || card.images[0]}
               alt="Court preview"
               className="w-full h-full object-cover"
               style={{ objectPosition: 'center 40%' }}
               onError={(e) => {
                 (e.target as HTMLImageElement).src =
-                  'https://placehold.co/900x500/1a1a1a/c8a96e?text=Reserve';
+                  'https://placehold.co/900x500/1a1a1a/c8a96e?text=The Pad';
               }}
             />
             {/* fade blending with dark panel above */}
@@ -324,7 +350,7 @@ function ImageCarousel({
           }}
           onError={(e) => {
             (e.target as HTMLImageElement).src =
-              'https://placehold.co/1200x800/1a1a1a/c8a96e?text=Reserve';
+              'https://placehold.co/1200x800/1a1a1a/FF6A00?text=The Pad';
           }}
         />
       ))}

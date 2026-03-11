@@ -23,10 +23,9 @@ const ParallaxImageSection = () => {
           className="absolute inset-0 z-0 h-full w-full"
         >
           <img
-            src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?q=80&w=1920&auto=format&fit=crop"
-            alt="Parallax community"
+            src="/assets/banner.jpg"
+            alt="The Pad Community"
             className="w-full h-full object-cover opacity-70"
-            referrerPolicy="no-referrer"
           />
         </motion.div>
 
@@ -35,6 +34,22 @@ const ParallaxImageSection = () => {
           className="absolute inset-0 z-10 bg-black pointer-events-none"
           style={{ opacity: overlayOpacity }}
         />
+
+        <div className="absolute inset-0 z-30 flex items-center justify-center px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center"
+          >
+            <h2 className="text-4xl md:text-7xl font-sans font-black uppercase text-white tracking-tighter mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              MORE THAN A COURT.
+            </h2>
+            <p className="text-lg md:text-2xl font-sans font-medium text-reserve-accent uppercase tracking-[0.4em]" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              IT'S A COMMUNITY.
+            </p>
+          </motion.div>
+        </div>
 
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-black to-transparent z-20" />
       </div>

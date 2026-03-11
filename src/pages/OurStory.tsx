@@ -18,8 +18,8 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
           className="w-full"
         >
           <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-bold uppercase tracking-[-0.04em] leading-[0.9] mb-12 flex flex-col items-center">
-            <span>Reserved for the athlete who</span>
-            <span>Makes sport a lifestyle</span>
+            <span>Delhi’s premier destination for</span>
+            <span>Padel and Pickleball</span>
           </h1>
 
           <motion.div
@@ -29,10 +29,11 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
             className="max-w-4xl mx-auto space-y-6"
           >
             <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium">
-              Reserve is pioneering a new sport across the United States by creating players,
-              fans and friends. This community, built on and around the court, will showcase
-              the world’s newest, most exciting game: padel. Through padel clubs, activations, pop-ups,
-              and tournaments, Reserve will propel to new heights by developing athletes throughout America.
+              The Pad is pioneering a new sports culture across India by creating players,
+              fans and friends. Featuring 6 world-class Padel courts and 4 professional Pickleball courts,
+              this community built on and around the court will showcase the world’s newest, 
+              most exciting games. Through our clubs and tournaments at Gulmohar Park, 
+              The Pad is the catalyst behind India's Padel revolution.
             </p>
           </motion.div>
         </motion.div>
@@ -66,8 +67,8 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
             viewport={{ once: true }}
             className="order-1 lg:order-2"
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-4">Leadership</p>
-            <h2 className="text-4xl md:text-6xl font-serif mb-12">About Our Founder</h2>
+            <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>Leadership</p>
+            <h2 className="text-4xl md:text-6xl font-black uppercase mb-12" style={{ fontFamily: "'Poppins', sans-serif" }}>About Our Founder</h2>
             <div className="text-lg text-black/70 space-y-6 leading-relaxed">
               <p>
                 Wayne Boich, a former top-ranked junior tennis player and US Open Junior Competitor,
@@ -92,7 +93,7 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-6xl font-serif mb-12 italic">"Padel is more than a game; it's a community built on the spirit of competition and the pleasure of style."</h2>
+          <h2 className="text-4xl md:text-6xl font-black uppercase mb-12" style={{ fontFamily: "'Poppins', sans-serif" }}>"Padel is more than a game; it's a community built on the spirit of competition and the pleasure of style."</h2>
           <div className="w-24 h-px bg-reserve-accent mx-auto" />
         </motion.div>
       </section>
@@ -115,10 +116,10 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
           viewport={{ once: true }}
           className="relative z-10"
         >
-          <h2 className="text-5xl md:text-8xl font-serif mb-8">Join the Padel Revolution</h2>
+          <h2 className="text-5xl md:text-8xl font-black uppercase mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>Join the Revolution</h2>
           <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
             Be part of the fastest growing sport in the world.
-            Experience the Reserve difference.
+            Experience the The Pad difference.
           </p>
           <button className="btn-primary" onClick={() => onNavigate("membership")}>Become a Member</button>
         </motion.div>
@@ -163,24 +164,24 @@ const ScrollStatementSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pt-16">
             <motion.div style={{ opacity: opacity1, y: y1 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
-                RESERVE <br /> IS THE FUTURE OF <br /> PADEL
+                THE PAD <br /> IS THE FUTURE OF <br /> PADEL
               </h3>
             </motion.div>
 
             <motion.div style={{ opacity: opacity2, y: y2 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
-                RESERVE <br /> IS PADEL
+                THE PAD <br /> IS PADEL
               </h3>
             </motion.div>
 
             <motion.div style={{ opacity: opacity3, y: y3 }} className="flex flex-col">
               <div className="group">
-                <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-[#6f886c]">
-                  RESERVE <br /> YOUR COURT
+                <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-reserve-accent">
+                  THE PAD <br /> AT GULMOHAR PARK
                 </h3>
                 <div className="mt-8 relative w-20 h-4">
-                  <div className="absolute top-1/2 left-0 h-[1.5px] w-full bg-[#6f886c]" />
-                  <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 rotate-45 w-2 h-2 border-t-[1.5px] border-r-[1.5px] border-[#6f886c]" />
+                  <div className="absolute top-1/2 left-0 h-[1.5px] w-full bg-reserve-accent" />
+                  <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 rotate-45 w-2 h-2 border-t-[1.5px] border-r-[1.5px] border-reserve-accent" />
                 </div>
               </div>
             </motion.div>
