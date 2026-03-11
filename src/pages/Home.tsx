@@ -7,11 +7,7 @@ import ParallaxImageSection from "../components/ParallaxImageSection";
 import BecomeAMemberSection from "../components/BecomeAMemberSection";
 import Footer from "../components/Footer";
 
-interface HomeProps {
-  onNavigate: (page: "home" | "story" | "clubs" | "membership") => void;
-}
-
-const Home = ({ onNavigate }: HomeProps) => {
+const Home = () => {
   return (
     <>
       <Hero />
@@ -20,8 +16,8 @@ const Home = ({ onNavigate }: HomeProps) => {
       <MeetThePros />
       <ClubAmenities />
       <ParallaxImageSection />
-      <BecomeAMemberSection onNavigate={onNavigate} />
-      <Footer onNavigate={onNavigate} />
+      <BecomeAMemberSection />
+      <Footer />
     </>
   );
 };

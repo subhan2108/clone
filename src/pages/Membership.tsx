@@ -1,11 +1,7 @@
 import { motion } from "motion/react";
 import Footer from "../components/Footer";
 
-interface MembershipProps {
-  onNavigate: (page: "home" | "story" | "clubs" | "membership") => void;
-}
-
-const Membership = ({ onNavigate }: MembershipProps) => {
+const Membership = () => {
   const solutions = [
     {
       title: "Elite Sports Club",
@@ -195,7 +191,7 @@ const Membership = ({ onNavigate }: MembershipProps) => {
         </motion.div>
       </section>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   );
 };

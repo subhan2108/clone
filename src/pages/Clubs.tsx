@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { motion } from "motion/react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 
-interface ClubsProps {
-  onNavigate: (page: "home" | "story" | "clubs" | "membership") => void;
-}
-
-const Clubs = ({ onNavigate }: ClubsProps) => {
+const Clubs = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -93,7 +91,7 @@ const Clubs = ({ onNavigate }: ClubsProps) => {
             Join our community for exclusive benefits, events and early access to new locations.
           </p>
           <button
-            onClick={() => onNavigate("membership")}
+            onClick={() => navigate("/membership")}
             className="px-12 py-5 bg-reserve-black text-white uppercase tracking-widest hover:bg-reserve-accent transition-all"
           >
             Become a Member
@@ -162,7 +160,7 @@ const Clubs = ({ onNavigate }: ClubsProps) => {
         )}
       </section>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   );
 };

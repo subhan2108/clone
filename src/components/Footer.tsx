@@ -1,10 +1,8 @@
-interface FooterProps {
-  onNavigate: (page: "home" | "story" | "clubs" | "membership") => void;
-}
+import { Link } from "react-router-dom";
 
-const Footer = ({ onNavigate }: FooterProps) => {
+const Footer = () => {
   return (
-    <footer className="bg-black text-white pt-32 pb-16 px-6 md:px-12 border-t border-white/10">
+    <footer id="contact" className="bg-black text-white pt-32 pb-16 px-6 md:px-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
         {/* Top Section: Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 border-b border-white/10 pb-20">
@@ -53,9 +51,9 @@ const Footer = ({ onNavigate }: FooterProps) => {
 
           <div className="grid grid-cols-2 gap-8 md:gap-16">
             <ul className="flex flex-col gap-4 text-[10px] uppercase tracking-[0.3em] font-bold text-white/50" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <li onClick={() => onNavigate("membership")} className="hover:text-white cursor-pointer transition-colors">Membership</li>
+              <li><Link to="/membership" className="hover:text-white cursor-pointer transition-colors block">Membership</Link></li>
               <li className="hover:text-white cursor-pointer transition-colors">Book a Court</li>
-              <li onClick={() => onNavigate("story")} className="hover:text-white cursor-pointer transition-colors">Our Story</li>
+              <li><Link to="/our-story" className="hover:text-white cursor-pointer transition-colors block">Our Story</Link></li>
               <li className="hover:text-white cursor-pointer transition-colors">Events</li>
             </ul>
             <ul className="flex flex-col gap-4 text-[10px] uppercase tracking-[0.3em] font-bold text-white/50" style={{ fontFamily: "'Poppins', sans-serif" }}>

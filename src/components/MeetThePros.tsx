@@ -54,7 +54,7 @@ const MeetThePros = () => {
             style={{
               color: '#f0ece2',
               lineHeight: 0.9,
-              fontSize: 'clamp(3.5rem, 16vw, 17rem)',
+              fontSize: 'clamp(3rem, 10vw, 10rem)',
               fontFamily: "'Poppins', sans-serif"
             }}
           >

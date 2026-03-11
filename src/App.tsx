@@ -1,40 +1,37 @@
 import { ReactLenis } from "lenis/react";
-import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import OurStory from "./pages/OurStory";
 import Clubs from "./pages/Clubs";
 import Membership from "./pages/Membership";
 
-export default function App() {
-  const [currentPage, setCurrentPage] = useState<"home" | "story" | "clubs" | "membership">("home");
-
-  // Scroll to top on page change
+// Helper component to scroll to top on route change
+function ScrollToTop() {
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentPage]);
+  }, [pathname]);
+  return null;
+}
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case "home":
-        return <Home onNavigate={setCurrentPage} />;
-      case "story":
-        return <OurStory onNavigate={setCurrentPage} />;
-      case "clubs":
-        return <Clubs onNavigate={setCurrentPage} />;
-      case "membership":
-        return <Membership onNavigate={setCurrentPage} />;
-      default:
-        return <Home onNavigate={setCurrentPage} />;
-    }
-  };
-
+export default function App() {
   return (
     <ReactLenis root>
-      <div className="min-h-screen">
-        <Navbar onNavigate={setCurrentPage} currentPage={currentPage} />
-        {renderPage()}
-      </div>
+      <BrowserRouter>
+        <ScrollToTop />
+        <div className="min-h-screen">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/our-story" element={<OurStory />} />
+            <Route path="/clubs" element={<Clubs />} />
+            <Route path="/membership" element={<Membership />} />
+            <Route path="*" element={<Home />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </ReactLenis>
   );
 }

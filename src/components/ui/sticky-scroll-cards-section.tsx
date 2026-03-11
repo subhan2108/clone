@@ -135,7 +135,7 @@ function CreamCard({ card }: { card: CardData }) {
   return (
     <div ref={ref} className="sticky mb-6" style={{ top: '80px' }}>
       <div
-        className={`flex flex-col md:flex-row w-full overflow-hidden rounded-xl transition-all duration-700 ease-out min-h-[85vh] md:min-h-0 md:h-[clamp(480px,56vh,620px)]
+        className={`flex flex-col md:flex-row w-full overflow-hidden rounded-xl transition-all duration-700 ease-out min-h-[85vh] md:h-auto md:min-h-[580px]
           ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
         style={{
           boxShadow: '0 24px 80px rgba(0,0,0,0.7)',
@@ -143,7 +143,7 @@ function CreamCard({ card }: { card: CardData }) {
       >
         {/* LEFT: cream text panel */}
         <div
-          className="flex flex-col justify-between p-8 md:p-12 flex-shrink-0 w-full md:w-[38%] md:min-w-[290px] md:max-w-[470px]"
+          className="flex flex-col justify-center p-8 md:p-12 flex-shrink-0 w-full md:w-[42%] md:min-w-[320px] md:max-w-[500px]"
           style={{ background: '#f0ece2', color: '#111' }}
         >
           {/* Arrows + dots */}

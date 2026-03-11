@@ -1,11 +1,9 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
-interface BecomeAMemberSectionProps {
-  onNavigate: (page: "home" | "story" | "clubs" | "membership") => void;
-}
-
-const BecomeAMemberSection = ({ onNavigate }: BecomeAMemberSectionProps) => {
+const BecomeAMemberSection = () => {
+  const navigate = useNavigate();
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -64,7 +62,7 @@ const BecomeAMemberSection = ({ onNavigate }: BecomeAMemberSectionProps) => {
           </p>
 
           <button
-            onClick={() => onNavigate("membership")}
+            onClick={() => navigate("/membership")}
             className="group relative flex items-center justify-center"
           >
             <div className="px-12 py-5 bg-reserve-accent rounded-full text-white uppercase tracking-[0.2em] text-xs font-bold transition-transform duration-300 group-hover:scale-105">

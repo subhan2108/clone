@@ -1,12 +1,10 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 
-interface OurStoryProps {
-  onNavigate: (page: "home" | "story" | "clubs" | "membership") => void;
-}
-
-const OurStory = ({ onNavigate }: OurStoryProps) => {
+const OurStory = () => {
+  const navigate = useNavigate();
   return (
     <div className="bg-black text-white min-h-screen flex flex-col pt-32">
       {/* Hero Section */}
@@ -121,11 +119,11 @@ const OurStory = ({ onNavigate }: OurStoryProps) => {
             Be part of the fastest growing sport in the world.
             Experience the The Pad difference.
           </p>
-          <button className="btn-primary" onClick={() => onNavigate("membership")}>Become a Member</button>
+          <button className="btn-primary" onClick={() => navigate("/membership")}>Become a Member</button>
         </motion.div>
       </section>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   );
 };
