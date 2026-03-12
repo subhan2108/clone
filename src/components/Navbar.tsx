@@ -17,10 +17,10 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", id: "home", path: "/" },
-    { name: "Courts", id: "clubs", path: "/clubs" },
-    { name: "Membership", id: "membership", path: "/membership" },
+    { name: "Clubs", id: "clubs", path: "/clubs" },
+    { name: "Services", id: "membership", path: "/membership" },
     { name: "Our Story", id: "story", path: "/our-story" },
-    { name: "Contact", id: "contact", path: "#contact" }
+    { name: "Contact", id: "contact", path: "/contact" }
   ];
 
   const location = useLocation();

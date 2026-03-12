@@ -4,34 +4,6 @@ const Footer = () => {
   return (
     <footer id="contact" className="bg-black text-white pt-32 pb-16 px-6 md:px-12 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
-        {/* Top Section: Newsletter */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 border-b border-white/10 pb-20">
-          <div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[1.1] tracking-tight" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              Stay in the loop <br /> with The Pad
-            </h2>
-          </div>
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase tracking-widest text-white/40">Email *</label>
-              <div className="flex border-b border-white/20 pb-2 group focus-within:border-white transition-colors">
-                <input
-                  type="email"
-                  className="bg-transparent border-none outline-none w-full text-lg placeholder:text-white/10"
-                  placeholder="Your Email"
-                />
-                <button className="text-[10px] uppercase tracking-[0.3em] font-bold hover:text-reserve-accent transition-colors">Submit</button>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <input type="checkbox" id="subscribe" className="mt-1 bg-transparent border-white/20 rounded-none cursor-pointer" />
-              <label htmlFor="subscribe" className="text-[10px] uppercase tracking-widest text-white/40 cursor-pointer">
-                Yes, subscribe me to your newsletter. *
-              </label>
-            </div>
-          </div>
-        </div>
-
         {/* Bottom Section: Locations and Links */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -57,7 +29,7 @@ const Footer = () => {
               <li className="hover:text-white cursor-pointer transition-colors">Events</li>
             </ul>
             <ul className="flex flex-col gap-4 text-[10px] uppercase tracking-[0.3em] font-bold text-white/50" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <li className="hover:text-white cursor-pointer transition-colors">Instagram</li>
+              <li className="hover:text-white cursor-pointer transition-colors"><a href="https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
               <li className="hover:text-white cursor-pointer transition-colors">LinkedIn</li>
               <li className="hover:text-white cursor-pointer transition-colors">WhatsApp</li>
             </ul>
