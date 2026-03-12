@@ -2,59 +2,78 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-black text-white pt-32 pb-16 px-6 md:px-12 border-t border-white/10">
-      <div className="max-w-7xl mx-auto">
-        {/* Bottom Section: Locations and Links */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <footer id="contact" className="relative bg-black text-white pt-32 pb-16 px-6 md:px-12 border-t border-white/10 overflow-hidden">
+      {/* Background Image Layer - Restored to original shade/color */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="https://i.postimg.cc/yNqdxTvs/Whats-App-Image-2026-03-12-at-4-42-04-PM.jpg"
+          alt="Footer Background"
+          className="w-full h-full object-cover opacity-60"
+        />
+        {/* Subtle gradient to ensure text remains readable without washing out the image colors */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24 mb-24">
+
+          {/* Left Section: Logo */}
+          <div className="flex flex-col items-start">
+            <Link
+              to="/"
+              className="inline-block transition-transform duration-500 hover:scale-[1.05]"
+            >
+              <img
+                src="/assets/logo.png"
+                alt="The Pad Logo"
+                className="h-28 md:h-36 w-auto object-contain"
+              />
+            </Link>
+          </div>
+
+          {/* Middle Section: Locations */}
+          <div className="flex flex-col gap-12">
             <div>
-              <h4 className="text-[10px] uppercase tracking-[0.4em] font-black mb-8 text-white/30" style={{ fontFamily: "'Poppins', sans-serif" }}>Locations</h4>
-              <div className="flex flex-col gap-8">
-                <div className="flex flex-col gap-1">
-                  <span className="text-sm font-bold uppercase tracking-widest text-reserve-accent">Gulmohar Park</span>
-                  <span className="text-xs text-white/50 leading-relaxed uppercase tracking-widest">
-                    Delhi, India <br />
-                    info@thepad.in
-                  </span>
+              <h4 className="text-[11px] uppercase tracking-[0.45em] font-black mb-10 text-white/60" style={{ fontFamily: "'Poppins', sans-serif" }}>Our Locations</h4>
+              <div className="flex flex-col gap-10">
+                <div className="flex flex-col gap-2">
+                  <span className="text-base font-bold uppercase tracking-widest text-reserve-accent">Gulmohar Park <br />New Delhi
+                    Delhi</span>
+                  <p className="text-[13px] text-white/90 leading-relaxed uppercase tracking-widest font-medium">
+
+                    <a href="mailto:info@thepad.in" className="hover:text-reserve-accent transition-colors">info@thepad.in</a>
+                  </p>
                 </div>
               </div>
             </div>
           </div>
 
+          {/* Right Section: Links */}
           <div className="grid grid-cols-2 gap-8 md:gap-16">
-            <ul className="flex flex-col gap-4 text-[10px] uppercase tracking-[0.3em] font-bold text-white/50" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <li><Link to="/membership" className="hover:text-white cursor-pointer transition-colors block">Membership</Link></li>
-              <li className="hover:text-white cursor-pointer transition-colors">Book a Court</li>
-              <li><Link to="/our-story" className="hover:text-white cursor-pointer transition-colors block">Our Story</Link></li>
-              <li className="hover:text-white cursor-pointer transition-colors">Events</li>
+            <ul className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.35em] font-bold text-white/80" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <li className="text-white/40 mb-2">Explore</li>
+              <li><Link to="/services" className="hover:text-reserve-accent cursor-pointer transition-colors block">Services</Link></li>
+              <li><Link to="/clubs" className="hover:text-reserve-accent cursor-pointer transition-colors block">Clubs</Link></li>
+              <li><Link to="/our-story" className="hover:text-reserve-accent cursor-pointer transition-colors block">Our Story</Link></li>
+              <li className="hover:text-reserve-accent cursor-pointer transition-colors">Book a Court</li>
             </ul>
-            <ul className="flex flex-col gap-4 text-[10px] uppercase tracking-[0.3em] font-bold text-white/50" style={{ fontFamily: "'Poppins', sans-serif" }}>
-              <li className="hover:text-white cursor-pointer transition-colors"><a href="https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-              <li className="hover:text-white cursor-pointer transition-colors">LinkedIn</li>
-              <li className="hover:text-white cursor-pointer transition-colors">WhatsApp</li>
+            <ul className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.35em] font-bold text-white/80" style={{ fontFamily: "'Poppins', sans-serif" }}>
+              <li className="text-white/40 mb-2">Social</li>
+              <li><a href="https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-reserve-accent transition-colors">Instagram</a></li>
+              <li className="hover:text-reserve-accent cursor-pointer transition-colors">LinkedIn</li>
+              <li className="hover:text-reserve-accent cursor-pointer transition-colors">WhatsApp</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center text-[8px] md:text-[10px] uppercase tracking-[0.3em] text-white/20 text-center md:text-left mb-12">
-          <span>© 2025 The Pad. All Rights Reserved.</span>
-          <div className="flex gap-8">
-            <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
-            <span className="hover:text-white cursor-pointer transition-colors">Terms of Service</span>
+        {/* Bottom Section: Copyright */}
+        <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center text-[9px] md:text-[11px] uppercase tracking-[0.3em] text-white/50 text-center md:text-left">
+          <span className="font-medium">© 2025 The Pad. All Rights Reserved.</span>
+          <div className="flex gap-10">
+            <span className="hover:text-white cursor-pointer transition-all">Privacy Policy</span>
+            <span className="hover:text-white cursor-pointer transition-all">Terms of Service</span>
           </div>
-        </div>
-
-        {/* Large Branding Logo */}
-        <div className="w-full text-center overflow-hidden pb-8">
-          <h1 
-            className="text-[15vw] md:text-[20vw] leading-none text-white/5 select-none pointer-events-none tracking-tighter"
-            style={{ 
-              fontFamily: "'Cormorant Garamond', serif",
-              fontStyle: 'italic'
-            }}
-          >
-            The Pad
-          </h1>
         </div>
       </div>
     </footer>

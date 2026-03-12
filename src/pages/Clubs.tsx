@@ -90,7 +90,7 @@ const Clubs = () => {
             Join our community for exclusive benefits, events and early access to new locations.
           </p>
           <button
-            onClick={() => navigate("/membership")}
+            onClick={() => navigate("/services")}
             className="px-12 py-5 bg-reserve-black text-white uppercase tracking-widest hover:bg-reserve-accent transition-all"
           >
             Become a Member

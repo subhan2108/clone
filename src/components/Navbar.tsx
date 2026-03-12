@@ -18,7 +18,7 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", id: "home", path: "/" },
     { name: "Clubs", id: "clubs", path: "/clubs" },
-    { name: "Services", id: "membership", path: "/membership" },
+    { name: "Services", id: "services", path: "/services" },
     { name: "Our Story", id: "story", path: "/our-story" },
     { name: "Contact", id: "contact", path: "/contact" }
   ];
@@ -28,7 +28,7 @@ const Navbar = () => {
   const isHomePage = location.pathname === "/";
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || !isHomePage ? "bg-black/95 backdrop-blur-md py-2" : "bg-transparent py-3"}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || !isHomePage ? "bg-black/95 backdrop-blur-md py-0" : "bg-transparent py-0"}`}>
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center">
 
         {/* Left Section: Logo (flex-1 ensures it takes equal space) */}
@@ -37,7 +37,7 @@ const Navbar = () => {
             to="/"
             className="flex items-center gap-2 cursor-pointer hover:opacity-70 transition-opacity"
           >
-            <img src="/assets/logo.png" alt="The Pad Logo" className="h-16 md:h-20 w-auto" />
+            <img src="/assets/logo.png" alt="The Pad Logo" className="h-24 md:h-32 w-auto" />
           </Link>
         </div>
 
@@ -47,7 +47,7 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-[10px] uppercase tracking-[0.2em] font-bold transition-all cursor-pointer whitespace-nowrap ${location.pathname === link.path ? "text-reserve-accent opacity-100" : "text-white/60 hover:text-white hover:opacity-100"}`}
+              className={`text-[13px] uppercase tracking-[0.25em] font-black transition-all cursor-pointer whitespace-nowrap ${location.pathname === link.path ? "text-reserve-accent opacity-100" : "text-white/60 hover:text-white hover:opacity-100"}`}
             >
               {link.name}
             </Link>
@@ -57,8 +57,8 @@ const Navbar = () => {
         {/* Right Section: CTA Button (flex-1 ensures it occupies equal space as the left) */}
         <div className="flex-1 flex justify-end">
           <button
-            onClick={() => navigate("/membership")}
-            className="hidden lg:block text-[9px] uppercase tracking-[0.25em] font-black py-2.5 px-7 rounded-full border border-reserve-accent hover:bg-reserve-accent hover:text-white transition-all text-white whitespace-nowrap"
+            onClick={() => navigate("/services")}
+            className="hidden lg:block text-[12px] uppercase tracking-[0.3em] font-black py-4 px-12 rounded-full border border-reserve-accent hover:bg-reserve-accent hover:text-white transition-all text-white whitespace-nowrap"
           >
             Become a Member
           </button>

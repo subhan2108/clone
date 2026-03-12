@@ -7,7 +7,7 @@ import BecomeAMemberSection from "./components/BecomeAMemberSection";
 import Home from "./pages/Home";
 import OurStory from "./pages/OurStory";
 import Clubs from "./pages/Clubs";
-import Membership from "./pages/Membership";
+import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 
 // Helper component to scroll to top on route change
@@ -30,7 +30,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/our-story" element={<OurStory />} />
             <Route path="/clubs" element={<Clubs />} />
-            <Route path="/membership" element={<Membership />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Home />} />
           </Routes>

@@ -61,8 +61,8 @@ const GreenCTASection = () => {
 
   const horizontalReveal = {
     hidden: { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-    visible: { 
-      clipPath: "inset(0 0 0 0)", 
+    visible: {
+      clipPath: "inset(0 0 0 0)",
       opacity: 1,
       transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
     }
@@ -130,8 +130,8 @@ const GreenCTASection = () => {
         className="max-w-3xl mx-auto text-center relative z-10"
       >
         <h2
-          className="text-4xl md:text-5xl lg:text-6xl mb-6 tracking-tight"
-          style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic', fontWeight: 500 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tighter uppercase italic"
+          style={{ fontFamily: "'Inter', sans-serif" }}
         >
           The Original Social Net-Work
         </h2>
@@ -139,8 +139,8 @@ const GreenCTASection = () => {
           Our love for padel and the people who play it runs deep. This isn't just ordinary membership, it's an invitation to become part of the very fabric of the club.
         </p>
         <Link
-          to="/membership"
-          className="inline-block px-8 py-3 bg-[#111] text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-black transition-colors"
+          to="/services"
+          className="inline-block px-10 py-4 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.25em] hover:bg-reserve-accent transition-colors"
         >
           Become A Member
         </Link>
@@ -149,11 +149,11 @@ const GreenCTASection = () => {
   );
 };
 
-const Membership = () => {
+const Services = () => {
   const horizontalReveal = {
     hidden: { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-    visible: { 
-      clipPath: "inset(0 0 0 0)", 
+    visible: {
+      clipPath: "inset(0 0 0 0)",
       opacity: 1,
       transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
     }
@@ -177,8 +177,15 @@ const Membership = () => {
           viewport={{ once: true }}
           className="relative z-10 text-center text-white px-6"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-[6rem] font-bold tracking-tight leading-[0.95]">
-            Always More Than<br />Just Padel.
+          <h1
+            className="text-7xl md:text-9xl lg:text-[14rem] font-black leading-[0.8] tracking-tighter uppercase italic"
+            style={{
+              color: '#f0ece2',
+              fontFamily: "'Inter', sans-serif",
+              letterSpacing: '-0.04em'
+            }}
+          >
+            Our<br />Services
           </h1>
         </motion.div>
       </section>
@@ -194,14 +201,14 @@ const Membership = () => {
         >
           Each of our venues are built around a sense of community.
           Where everyone from die-hard players to first timers are
-          welcome to play.
+          welcome to experience our premier club services.
         </motion.p>
       </section>
 
       {/* Club Sections */}
       <section className="bg-white">
         <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:min-h-[600px]">
-          <motion.div 
+          <motion.div
             variants={horizontalReveal}
             initial="hidden"
             whileInView="visible"
@@ -223,14 +230,14 @@ const Membership = () => {
               viewport={{ once: true }}
               className="max-w-md"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">Earls Court</h2>
-              <h3 className="text-xs font-bold uppercase tracking-[0.15em] mb-4">Our vibrant social hub.</h3>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-4 tracking-tighter uppercase italic" style={{ fontFamily: "'Inter', sans-serif" }}>Earls Court</h2>
+              <h3 className="text-reserve-accent text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 font-black">Our vibrant social hub.</h3>
               <p className="text-sm text-black/60 mb-8 leading-relaxed">
                 Nestled in the heart of West London, our Earls Court club offers the ultimate on-and-off court experience.
               </p>
               <div className="flex flex-wrap gap-3">
-                <button className="px-7 py-2.5 bg-[#111] text-white rounded-full text-[10px] font-bold uppercase hover:bg-black transition-colors">View Club</button>
-                <button className="px-7 py-2.5 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase hover:border-black transition-colors">Book Court</button>
+                <button className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors">View Club</button>
+                <button className="px-8 py-3 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:border-black transition-colors">Book Court</button>
               </div>
             </motion.div>
           </div>
@@ -249,18 +256,18 @@ const Membership = () => {
               viewport={{ once: true }}
               className="max-w-md"
             >
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">The O2</h2>
-              <h3 className="text-xs font-bold uppercase tracking-[0.15em] mb-4">Full club serving soon.</h3>
+              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-4 tracking-tighter uppercase italic" style={{ fontFamily: "'Inter', sans-serif" }}>The O2</h2>
+              <h3 className="text-reserve-accent text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 font-black">Full club serving soon.</h3>
               <p className="text-sm text-black/60 mb-8 leading-relaxed">
                 Play goes on at our iconic riverside venue at The O2, where two temporary outdoor courts are now open.
               </p>
               <div className="flex flex-wrap gap-3">
-                <button className="px-7 py-2.5 bg-[#111] text-white rounded-full text-[10px] font-bold uppercase hover:bg-black transition-colors">View Club</button>
-                <button className="px-7 py-2.5 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase hover:border-black transition-colors">Book Court</button>
+                <button className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors">View Club</button>
+                <button className="px-8 py-3 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:border-black transition-colors">Book Court</button>
               </div>
             </motion.div>
           </div>
-          <motion.div 
+          <motion.div
             variants={horizontalReveal}
             initial="hidden"
             whileInView="visible"
@@ -282,4 +289,4 @@ const Membership = () => {
   );
 };
 
-export default Membership;
+export default Services;

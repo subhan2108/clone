@@ -57,7 +57,7 @@ const BecomeAMemberSection = () => {
           </p>
 
           <button
-            onClick={() => navigate("/membership")}
+            onClick={() => navigate("/services")}
             className="group relative flex items-center justify-center transition-transform duration-300 hover:scale-[1.02]"
           >
             {/* Outer "Pill" Border */}

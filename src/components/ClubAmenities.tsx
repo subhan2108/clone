@@ -148,7 +148,7 @@ const ClubAmenities = () => {
                     )}
                   </svg>
                 </div>
-                <div className="text-center whitespace-pre-line text-[11px] md:text-[12px] font-medium tracking-wide uppercase" style={{ color: '#f0ece2', lineHeight: 1.4, fontFamily: 'sans-serif' }}>
+                <div className="text-center whitespace-pre-line text-[11px] md:text-[12px] font-bold tracking-wide uppercase" style={{ color: '#FF6A00', lineHeight: 1.4, fontFamily: 'sans-serif' }}>
                   {item.text}
                 </div>
               </div>
