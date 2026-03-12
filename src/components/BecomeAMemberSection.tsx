@@ -41,34 +41,32 @@ const BecomeAMemberSection = () => {
 
         {/* The Overlapping Footer Card (COME PLAY!) */}
         <motion.div
-          className="absolute w-[92%] max-w-[650px] aspect-[1/1.1] rounded-[40px] p-8 md:p-16 flex flex-col items-center justify-center text-center shadow-[0_50px_100px_rgba(0,0,0,0.6)] overflow-hidden"
+          className="absolute w-[90%] max-w-[520px] aspect-square rounded-[40px] p-8 md:p-12 flex flex-col items-center justify-center text-center shadow-[0_40px_80px_rgba(0,0,0,0.3)] overflow-hidden"
           style={{
             y: cardY,
             scale: cardScale,
             zIndex: 30,
-            backgroundImage: 'url(/assets/mockup.jpg)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundColor: '#2D6A3E',
           }}
         >
-          {/* dark overlay for text contrast */}
-          <div className="absolute inset-0 bg-black/40 z-0" />
-
-          <h2 className="relative z-10 text-4xl md:text-6xl font-black uppercase mb-8 text-white tracking-tight" style={{ fontFamily: 'Poppins, sans-serif' }}>
+          <h2 className="relative z-10 text-4xl md:text-5xl font-heading font-black uppercase mb-6 text-black tracking-tighter leading-none">
             COME PLAY!
           </h2>
-          <p className="relative z-10 text-lg md:text-2xl text-white font-medium leading-tight mb-14 max-w-lg">
+          <p className="relative z-10 text-base md:text-xl text-black font-body font-medium leading-tight mb-10 max-w-[380px]">
             Built for a community of people that embrace a life of athletic elegance; the spirit of competition and the pleasure of style.
           </p>
 
           <button
             onClick={() => navigate("/membership")}
-            className="group relative flex items-center justify-center"
+            className="group relative flex items-center justify-center transition-transform duration-300 hover:scale-[1.02]"
           >
-            <div className="px-12 py-5 bg-reserve-accent rounded-full text-white uppercase tracking-[0.2em] text-xs font-bold transition-transform duration-300 group-hover:scale-105">
+            {/* Outer "Pill" Border */}
+            <div className="absolute inset-[-10px] border border-black/20 rounded-full" />
+            
+            {/* Inner "Pill" Button */}
+            <div className="relative z-10 px-10 py-4 bg-black rounded-full text-white uppercase tracking-[0.15em] text-[10px] font-bold shadow-xl">
               Become a Member
             </div>
-            <div className="absolute inset-[-8px] border border-reserve-accent/30 rounded-full transition-transform duration-500 group-hover:scale-110" />
           </button>
         </motion.div>
       </div>

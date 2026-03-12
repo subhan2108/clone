@@ -23,9 +23,10 @@ const ParallaxImageSection = () => {
           className="absolute inset-0 z-0 h-full w-full"
         >
           <img
-            src="/assets/banner.jpg"
+            src="https://images.unsplash.com/photo-1646649853517-e2f75cde1908?q=80&w=2070&auto=format&fit=crop"
             alt="The Pad Community"
-            className="w-full h-full object-contain opacity-70"
+            className="w-full h-full object-cover opacity-70"
+            referrerPolicy="no-referrer"
           />
         </motion.div>
 
@@ -42,10 +43,10 @@ const ParallaxImageSection = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h2 className="text-4xl md:text-7xl font-sans font-black uppercase text-white tracking-tighter mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            <h2 className="text-4xl md:text-7xl font-heading font-black uppercase text-white tracking-tighter mb-4">
               MORE THAN A COURT.
             </h2>
-            <p className="text-lg md:text-2xl font-sans font-medium text-reserve-accent uppercase tracking-[0.4em]" style={{ fontFamily: "'Poppins', sans-serif" }}>
+            <p className="text-lg md:text-2xl font-body font-medium text-reserve-accent uppercase tracking-[0.4em]">
               IT'S A COMMUNITY.
             </p>
           </motion.div>
@@ -58,3 +59,4 @@ const ParallaxImageSection = () => {
 };
 
 export default ParallaxImageSection;
+

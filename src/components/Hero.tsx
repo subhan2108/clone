@@ -6,42 +6,20 @@ const Hero = () => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const [showVideo, setShowVideo] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowVideo(true);
-    }, 2800); // 2.8s delay for the video reveal
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex flex-col items-center justify-center bg-black">
-      {/* Background Layer: Banner Image (Shown initially) */}
+      {/* Background Layer: Single Video (Plays immediately) */}
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10" />
-        <img
-          src="/assets/banner.jpg"
-          alt="The Pad Initial"
-          className="w-full h-full object-cover grayscale brightness-75 scale-110"
+        <div className="absolute inset-0 bg-black/50 z-10" />
+        <video
+          src="/assets/serving-soon.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover grayscale brightness-75 scale-105"
         />
-
-        {/* Video Layer: Fades in after delay */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showVideo ? 1 : 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-          className="absolute inset-0 z-20"
-        >
-          <video
-            src="/assets/serving-soon.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover grayscale brightness-75 scale-110"
-          />
-        </motion.div>
 
         {/* Deep bottom gradient to blend into next section */}
         <div className="absolute inset-x-0 bottom-0 h-96 bg-gradient-to-t from-black via-black/20 to-transparent z-30" />
@@ -53,20 +31,20 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-reserve-accent text-xs uppercase tracking-[0.6em] mb-4 font-bold"
+          className="text-reserve-accent text-[10px] md:text-xs uppercase tracking-[0.5em] mb-4 font-bold"
         >
-          Delhi's Premier Padel Destination
+          India's premier Padel and Pickleball Destination
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-          className="text-7xl md:text-9xl lg:text-[14rem] font-sans font-black leading-[0.8] tracking-tighter mb-16 uppercase"
+          className="text-7xl md:text-9xl lg:text-[14rem] font-black leading-[0.8] tracking-tighter mb-16 uppercase italic"
           style={{
             color: '#f0ece2',
             textShadow: '0 20px 40px rgba(0,0,0,0.5)',
             letterSpacing: '-0.04em',
-            fontFamily: "'Poppins', sans-serif"
+            fontFamily: "'Inter', sans-serif"
           }}
         >
           The Pad
@@ -76,8 +54,8 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="inline-flex flex-col md:flex-row items-center border border-white/20 rounded-[50px] p-1.5 backdrop-blur-sm bg-white/5"
+          transition={{ duration: 1, delay: 0.5 }}
+          className="inline-flex flex-col md:flex-row items-center border border-white/20 rounded-[50px] p-1.5 backdrop-blur-md bg-white/5"
         >
           <button className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent transition-all rounded-[40px] duration-500 whitespace-nowrap">
             Book a Court

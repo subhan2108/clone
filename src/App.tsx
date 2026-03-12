@@ -2,6 +2,8 @@ import { ReactLenis } from "lenis/react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import BecomeAMemberSection from "./components/BecomeAMemberSection";
 import Home from "./pages/Home";
 import OurStory from "./pages/OurStory";
 import Clubs from "./pages/Clubs";
@@ -30,6 +32,8 @@ export default function App() {
             <Route path="/membership" element={<Membership />} />
             <Route path="*" element={<Home />} />
           </Routes>
+          <BecomeAMemberSection />
+          <Footer />
         </div>
       </BrowserRouter>
     </ReactLenis>

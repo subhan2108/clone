@@ -103,12 +103,11 @@ export function StickyLatestSection({
       {/* ── BIG "THE LATEST" HEADER ── */}
       <div className="px-6 md:px-12 mb-16">
         <h2
-          className="font-black uppercase leading-none select-none"
+          className="font-heading font-black uppercase leading-none select-none"
           style={{
             fontSize: 'clamp(4rem, 14vw, 13rem)',
             letterSpacing: '-0.02em',
             color: '#f0ece2',
-            fontFamily: "'Poppins', sans-serif",
           }}
         >
           LIFE AT <br /> THE PAD
@@ -159,11 +158,10 @@ function CreamCard({ card }: { card: CardData }) {
               {card.subtitle}
             </p>
             <h3
-              className="font-black uppercase leading-none"
+              className="font-heading font-black uppercase leading-none"
               style={{
                 fontSize: 'clamp(1.5rem, 2.8vw, 2.5rem)',
                 letterSpacing: '-0.02em',
-                fontFamily: "'Poppins', sans-serif",
                 color: '#0d0d0d',
               }}
             >
@@ -253,12 +251,11 @@ function DarkCard({ card }: { card: CardData }) {
             style={{ paddingTop: '2rem', paddingBottom: '1.5rem', flexBasis: '45%' }}
           >
             <h3
-              className="font-black uppercase leading-tight mb-4"
+              className="font-heading font-black uppercase leading-tight mb-4"
               style={{
                 fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)',
                 color: '#f0ece2',
                 letterSpacing: '-0.01em',
-                fontFamily: "'Poppins', sans-serif"
               }}
             >
               {card.title}

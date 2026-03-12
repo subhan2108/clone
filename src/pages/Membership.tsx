@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import Footer from "../components/Footer";
 import { MoveRight } from "lucide-react";
 
 const Membership = () => {
@@ -128,8 +127,6 @@ const Membership = () => {
             </button>
          </div>
       </section>
-
-      <Footer />
     </div>
   );
 };

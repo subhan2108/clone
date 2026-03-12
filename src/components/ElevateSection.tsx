@@ -52,10 +52,9 @@ const DiscoverPrograms = () => {
         {/* ── ANIMATED HEADING ── */}
         <div className="text-center mb-6" style={{ overflow: 'hidden' }}>
           <h2
-            className="font-black uppercase leading-none transition-none select-none text-wrap md:whitespace-nowrap"
+            className="font-heading font-black uppercase leading-none transition-none select-none text-wrap md:whitespace-nowrap"
             style={{
               fontSize: `clamp(1.5rem, ${fontSize}vw, 3.5rem)`,
-              fontFamily: "'Poppins', sans-serif",
               color: '#f0ece2',
               letterSpacing: '-0.05em', // Tighter spacing to match screenshot
               lineHeight: 1,
@@ -144,8 +143,7 @@ const DiscoverPrograms = () => {
                       {prog.price}
                     </div>
                     <button
-                      className="px-8 py-2.5 rounded-full text-[11px] tracking-wide transition-all hover:bg-[#f0ece2] hover:text-black border"
-                      style={{ color: '#f0ece2', borderColor: 'rgba(240,236,226,0.25)' }}
+                      className="px-8 py-2.5 rounded-full text-[11px] tracking-wide transition-all text-[#f0ece2] border border-[rgba(240,236,226,0.25)] hover:bg-[#f0ece2] hover:text-black"
                     >
                       Book Now
                     </button>

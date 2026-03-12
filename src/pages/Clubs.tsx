@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const Clubs = () => {
   const navigate = useNavigate();
@@ -159,8 +158,6 @@ const Clubs = () => {
           </form>
         )}
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const OurStory = () => {
   const navigate = useNavigate();
@@ -95,35 +94,6 @@ const OurStory = () => {
           <div className="w-24 h-px bg-reserve-accent mx-auto" />
         </motion.div>
       </section>
-
-      {/* Join Section */}
-      <section className="relative py-48 px-6 overflow-hidden text-center">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1587280590050-0c2400ee00ab?q=80&w=1920&auto=format&fit=crop"
-            alt="Padel Revolution"
-            className="w-full h-full object-cover opacity-30"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-reserve-black via-transparent to-reserve-black" />
-        </div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="relative z-10"
-        >
-          <h2 className="text-5xl md:text-8xl font-black uppercase mb-8" style={{ fontFamily: "'Poppins', sans-serif" }}>Join the Revolution</h2>
-          <p className="text-xl text-white/60 mb-12 max-w-2xl mx-auto">
-            Be part of the fastest growing sport in the world.
-            Experience the The Pad difference.
-          </p>
-          <button className="btn-primary" onClick={() => navigate("/membership")}>Become a Member</button>
-        </motion.div>
-      </section>
-
-      <Footer />
     </div>
   );
 };
