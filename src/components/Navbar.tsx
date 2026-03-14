@@ -17,18 +17,21 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Home", id: "home", path: "/" },
-    { name: "Clubs", id: "clubs", path: "/clubs" },
-    { name: "Services", id: "services", path: "/services" },
     { name: "Our Story", id: "story", path: "/our-story" },
+    { name: "Services", id: "services", path: "/services" },
+    { name: "Clubs", id: "clubs", path: "/clubs" },
     { name: "Contact", id: "contact", path: "/contact" }
   ];
 
   const location = useLocation();
   const navigate = useNavigate();
-  const isHomePage = location.pathname === "/";
+  
+  // Pages that feature a full-screen hero and should start with a transparent navbar
+  const pagesWithHero = ["/", "/contact"];
+  const isTransparentPage = pagesWithHero.includes(location.pathname);
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || !isHomePage ? "bg-black/95 backdrop-blur-md py-0" : "bg-transparent py-0"}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || !isTransparentPage ? "bg-black/95 backdrop-blur-md py-0" : "bg-transparent py-0"}`}>
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 flex items-center">
 
         {/* Left Section: Logo (flex-1 ensures it takes equal space) */}
@@ -60,7 +63,7 @@ const Navbar = () => {
             onClick={() => navigate("/services")}
             className="hidden lg:block text-[12px] uppercase tracking-[0.3em] font-black py-4 px-12 rounded-full border border-reserve-accent hover:bg-reserve-accent hover:text-white transition-all text-white whitespace-nowrap"
           >
-            Become a Member
+            Book Your Court
           </button>
 
           {/* Mobile Toggle inside the right section */}
@@ -98,7 +101,7 @@ const Navbar = () => {
           </div>
           <div className="mt-auto pb-12">
             <button className="w-full py-5 rounded-full border border-white/20 text-[10px] uppercase tracking-[0.3em] font-bold text-white">
-              Become a Member
+              Book Your Court
             </button>
           </div>
         </motion.div>

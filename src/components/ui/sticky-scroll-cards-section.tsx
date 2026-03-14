@@ -41,7 +41,7 @@ const darkCard = {
   title: "PICKLEBALL SOCIALS",
   description:
     "Experience the fastest growing sport in a social environment. Our pickleball sessions are perfect for meeting new people and staying active in the heart of Delhi.",
-  buttonLabel: "Join a Social",
+  buttonLabel: "Join Our Community",
   images: [
     "https://images.unsplash.com/photo-1646649852046-b758d2d573f3?q=80&w=2000&auto=format&fit=crop",
     "https://images.unsplash.com/photo-1646649852365-3e89e23dee7b?q=80&w=2000&auto=format&fit=crop",

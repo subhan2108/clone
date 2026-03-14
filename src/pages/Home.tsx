@@ -4,6 +4,8 @@ import ElevateSection from "../components/ElevateSection";
 import MeetThePros from "../components/MeetThePros";
 import ClubAmenities from "../components/ClubAmenities";
 import ParallaxImageSection from "../components/ParallaxImageSection";
+import BecomeAMemberSection from "../components/BecomeAMemberSection";
+
 const Home = () => {
   return (
     <>
@@ -13,6 +15,7 @@ const Home = () => {
       {/* <MeetThePros /> */}
       <ClubAmenities />
       <ParallaxImageSection />
+      <BecomeAMemberSection />
     </>
   );
 };

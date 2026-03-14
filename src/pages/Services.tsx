@@ -1,290 +1,288 @@
 import { motion, useScroll, useTransform } from "motion/react";
-import { Link } from "react-router-dom";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { MapPin, ArrowRight, Star, Shield, Award, Globe } from "lucide-react";
 
-/* Animated L-shaped line.
-   - align="left":  └────── (vertical grows down, then horizontal grows right)
-   - align="right": ──────┐ (horizontal grows left, then vertical grows down) */
-const ScrollLine = ({ align = 'left' }: { align?: 'left' | 'right' }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.7", "end 0.3"]
-  });
-
-  // Vertical stub grows first (0→30%), then horizontal bar (30→100%)
-  const verticalHeight = useTransform(scrollYProgress, [0, 0.3], [0, 24]);
-  const horizontalWidth = useTransform(scrollYProgress, [0.3, 1], [0, 160]);
-
-  return (
-    <div
-      ref={ref}
-      className={`w-full flex ${align === 'right' ? 'justify-end' : 'justify-start'} px-8 md:px-16 lg:px-24`}
-      style={{ height: '120px', alignItems: 'flex-end', paddingBottom: '20px' }}
-    >
-      {align === 'left' ? (
-        /* └────── shape */
-        <div className="flex items-end">
-          <motion.div
-            style={{ height: verticalHeight }}
-            className="w-[2px] bg-black"
-          />
-          <motion.div
-            style={{ width: horizontalWidth }}
-            className="h-[2px] bg-black"
-          />
-        </div>
-      ) : (
-        /* ──────┐ shape */
-        <div className="flex items-end">
-          <motion.div
-            style={{ width: horizontalWidth }}
-            className="h-[2px] bg-black"
-          />
-          <motion.div
-            style={{ height: verticalHeight }}
-            className="w-[2px] bg-black"
-          />
-        </div>
-      )}
-    </div>
-  );
-};
-
-/* Green CTA section with scroll-animated diagonal lines */
-const GreenCTASection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start 0.8", "end 0.2"]
-  });
-
-  const horizontalReveal = {
-    hidden: { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-    visible: {
-      clipPath: "inset(0 0 0 0)",
-      opacity: 1,
-      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
-
-  // Each line grows at a staggered pace
-  const line1H = useTransform(scrollYProgress, [0, 0.5], [0, 800]);
-  const line2H = useTransform(scrollYProgress, [0.05, 0.55], [0, 900]);
-  const line3H = useTransform(scrollYProgress, [0.1, 0.6], [0, 800]);
-  const line4H = useTransform(scrollYProgress, [0.15, 0.65], [0, 900]);
-
-  return (
-    <section ref={sectionRef} className="bg-[#1a4d2e] text-white py-28 md:py-36 px-6 relative overflow-hidden">
-      {/* Staggered diagonal lines */}
-      <motion.div
-        className="absolute bg-white/80"
-        style={{
-          width: '4px',
-          height: line1H,
-          top: '-200px',
-          right: '18%',
-          transform: 'rotate(-30deg)',
-          transformOrigin: 'top center'
-        }}
-      />
-      <motion.div
-        className="absolute bg-black/35"
-        style={{
-          width: '5px',
-          height: line2H,
-          top: '-100px',
-          left: '-5%',
-          transform: 'rotate(25deg)',
-          transformOrigin: 'top center'
-        }}
-      />
-      <motion.div
-        className="absolute bg-black/35"
-        style={{
-          width: '5px',
-          height: line3H,
-          bottom: '-200px',
-          right: '2%',
-          transform: 'rotate(-50deg)',
-          transformOrigin: 'bottom center'
-        }}
-      />
-      <motion.div
-        className="absolute bg-black/25"
-        style={{
-          width: '4px',
-          height: line4H,
-          bottom: '-250px',
-          left: '6%',
-          transform: 'rotate(35deg)',
-          transformOrigin: 'bottom center'
-        }}
-      />
-
-      <motion.div
-        variants={horizontalReveal}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="max-w-3xl mx-auto text-center relative z-10"
-      >
-        <h2
-          className="text-4xl md:text-6xl lg:text-7xl font-black mb-8 tracking-tighter uppercase italic"
-          style={{ fontFamily: "'Inter', sans-serif" }}
-        >
-          The Original Social Net-Work
-        </h2>
-        <p className="text-xs md:text-sm text-white/70 mb-10 max-w-lg mx-auto leading-relaxed">
-          Our love for padel and the people who play it runs deep. This isn't just ordinary membership, it's an invitation to become part of the very fabric of the club.
-        </p>
-        <Link
-          to="/services"
-          className="inline-block px-10 py-4 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.25em] hover:bg-reserve-accent transition-colors"
-        >
-          Become A Member
-        </Link>
-      </motion.div>
-    </section>
-  );
-};
+/**
+ * SERVICES PAGE: COMPREHENSIVE COURT SOLUTIONS
+ * Combined Design: User-requested services + Technical Expertise + Global Leadership
+ */
 
 const Services = () => {
-  const horizontalReveal = {
-    hidden: { clipPath: "inset(0 100% 0 0)", opacity: 0 },
-    visible: {
-      clipPath: "inset(0 0 0 0)",
-      opacity: 1,
-      transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] }
+  const navigate = useNavigate();
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollY } = useScroll();
+  
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
+
+  const services = [
+    {
+      title: "Padel Courts",
+      image: "https://images.unsplash.com/photo-1646649853549-80a5682fd65b?q=80&w=1200&auto=format&fit=crop",
+      location: "India's Premiere Choice"
+    },
+    {
+      title: "Pickleball Courts",
+      image: "https://images.unsplash.com/photo-1610484196191-49b06213be02?q=80&w=1200&auto=format&fit=crop",
+      location: "Fast-Paced Community Play"
+    },
+    {
+      title: "Tennis Courts",
+      image: "https://images.unsplash.com/photo-1595435064215-99298a44d8b5?q=80&w=1200&auto=format&fit=crop",
+      location: "Professional Surface Standards"
+    },
+    {
+      title: "Cricket & Football Turf",
+      image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
+      location: "High-Density Multi-Purpose Turf"
+    },
+    {
+      title: "Basketball Courts",
+      image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
+      location: "Performance Hardwood & Acrylic"
+    },
+    {
+      title: "Badminton Courts",
+      image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?q=80&w=1200&auto=format&fit=crop",
+      location: "BWF Compliant Indoor Solutions"
+    }
+  ];
+
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col text-black font-sans bg-white overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="relative w-full h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1646649853517-e2f75cde1908?q=80&w=2070&auto=format&fit=crop"
-          alt="Padel Club"
-          className="absolute inset-0 w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-        />
-        <div className="absolute inset-0 bg-black/30" />
-        <motion.div
-          variants={horizontalReveal}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="relative z-10 text-center text-white px-6"
-        >
-          <h1
-            className="text-7xl md:text-9xl lg:text-[14rem] font-black leading-[0.8] tracking-tighter uppercase italic"
-            style={{
+    <div className="bg-[#0a0a0a] text-[#f0ece2] min-h-screen font-sans overflow-x-hidden pt-20 transition-all duration-300">
+      
+      {/* 1. HERO SECTION */}
+      <section ref={heroRef} className="relative h-[80vh] w-full flex flex-col items-center justify-center overflow-hidden">
+        <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1592910129841-3b8d1b1f092b?q=80&w=2070&auto=format&fit=crop"
+            alt="Sports Infrastructure"
+            className="w-full h-full object-cover grayscale brightness-30 contrast-125 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-transparent to-[#0a0a0a] z-10" />
+        </motion.div>
+
+        <div className="relative z-20 text-center px-6">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-reserve-accent text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 font-black"
+          >
+            Infrastructure Excellence
+          </motion.p>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+            className="text-6xl md:text-8xl lg:text-[11rem] font-black leading-[0.8] tracking-tighter mb-12 uppercase italic"
+            style={{ 
+              fontFamily: "'Inter', sans-serif", 
               color: '#f0ece2',
-              fontFamily: "'Inter', sans-serif",
               letterSpacing: '-0.04em'
             }}
           >
-            Our<br />Services
-          </h1>
-        </motion.div>
+            OUR <br /> SERVICES
+          </motion.h1>
+          
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="max-w-xl mx-auto border-t border-white/10 pt-8"
+          >
+            <p className="text-white/40 text-sm md:text-base uppercase tracking-widest font-medium leading-relaxed">
+              From elite Padel clubs to professional multi-sport turfs, we design and build the future of Indian sports.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
-      {/* Intro Text */}
-      <section className="bg-white px-6 py-16 md:py-20 text-center">
-        <motion.p
-          variants={horizontalReveal}
-          initial="hidden"
-          whileInView="visible"
+      {/* 2. OUR EXPERTISE SECTION (Technical Foundation) */}
+      <section className="py-24 md:py-40 px-6 md:px-12 bg-white text-black">
+        <div className="max-w-[1400px] w-[94%] mx-auto text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <div className="flex items-center justify-center gap-4 mb-10">
+               <div className="h-px w-8 bg-reserve-accent" />
+               <span className="text-[10px] font-black tracking-[0.4em] text-reserve-accent uppercase">Technical Standards</span>
+               <div className="h-px w-8 bg-reserve-accent" />
+            </div>
+            <h2
+              className="font-heading font-black uppercase leading-[1.1] mb-8"
+              style={{
+                fontSize: 'clamp(2rem, 5vw, 4.5rem)',
+                letterSpacing: '-0.05em',
+              }}
+            >
+              ELEVATING COURT EXCELLENCE <br /> THROUGH GLOBAL PARTNERSHIP.
+            </h2>
+            <p
+              className="mx-auto leading-relaxed text-black/60 font-medium"
+              style={{
+                fontSize: '1.1rem',
+                maxWidth: '850px',
+                lineHeight: 1.8,
+              }}
+            >
+              We take pride in our global partnership with world-renowned sports infrastructure manufacturers. 
+              Our alliance brings together years of craftsmanship and technical expertise 
+              to provide state-of-the-art court installations across India. 
+              From initial consultancy to final construction, we ensure every project meets 
+              international professional standards.
+            </p>
+          </motion.div>
+
+          {/* Partner Indicators */}
+          <div className="mt-20 flex flex-wrap justify-center gap-12 md:gap-24 items-center opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
+             <div className="flex flex-col items-center gap-2">
+                <Globe size={40} />
+                <span className="text-[9px] font-black tracking-[0.2em]">GLOBAL PARTNER</span>
+             </div>
+             <div className="text-2xl font-black italic tracking-tighter uppercase">Sky Padel</div>
+             <div className="text-2xl font-black italic tracking-tighter uppercase">Royal Padel</div>
+             <div className="text-2xl font-black italic tracking-tighter uppercase">Elite Turf</div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. SERVICES GRID */}
+      <section className="py-24 md:py-40 bg-[#0a0a0a] px-6 md:px-12">
+        <div className="max-w-[1700px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-20">
+            {services.map((service, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                className="group flex flex-col"
+              >
+                {/* Image Container */}
+                <div className="relative aspect-[4/5] overflow-hidden rounded-sm mb-10 transition-transform duration-1000 group-hover:scale-[0.98]">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover grayscale transition-all duration-1000 group-hover:grayscale-0 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-black via-black/20 to-transparent z-10" />
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col items-start px-2">
+                  <div className="flex items-center gap-3 mb-6">
+                    <MapPin size={18} className="text-reserve-accent" />
+                    <span className="text-reserve-accent text-[10px] font-black tracking-[0.3em] uppercase leading-none">
+                      {service.location}
+                    </span>
+                  </div>
+
+                  <h3 
+                    className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-8 leading-none"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
+                  >
+                    {service.title}
+                  </h3>
+
+                  <div className="h-px w-full bg-white/10 mb-10" />
+
+                  {/* Build Your Court Now Button */}
+                  <button
+                    onClick={() => navigate("/contact")}
+                    className="flex items-center gap-4 group/btn"
+                  >
+                    <span className="text-[11px] font-black uppercase tracking-[0.3em] group-hover/btn:text-reserve-accent transition-colors">
+                      Build Your Court Now
+                    </span>
+                    <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover/btn:border-reserve-accent group-hover/btn:bg-reserve-accent transition-all">
+                      <ArrowRight size={16} className="text-white group-hover/btn:scale-110 transition-transform" />
+                    </div>
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. REGIONAL HUBS (Location Cards) */}
+      <section className="py-24 md:py-48 bg-[#0a0a0a] px-6 md:px-12 border-t border-white/5">
+        <div className="max-w-[1400px] mx-auto">
+          <h3 className="text-center text-reserve-accent text-[11px] font-black tracking-[0.6em] mb-24">REGIONAL HUBS</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            {[
+              { name: "THE PAD GULMOHAR", location: "South Delhi", address: "Gulmohar Park, New Delhi, India" },
+              { name: "THE PAD CHATTARPUR", location: "South Delhi", address: "Chattarpur, New Delhi, India" },
+              { name: "THE PAD GURUGRAM", location: "Haryana", address: "Sector 43, Gurugram, India" }
+            ].map((loc, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="group bg-zinc-950 p-12 rounded-[2rem] border border-white/5 hover:border-reserve-accent/50 transition-all duration-500"
+              >
+                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-10 group-hover:bg-reserve-accent/10 transition-colors">
+                  <MapPin size={24} className="text-reserve-accent" />
+                </div>
+                <h4 className="text-3xl font-black uppercase italic tracking-tighter mb-4" style={{ fontFamily: "'Inter', sans-serif", color: '#f0ece2' }}>{loc.name}</h4>
+                <p className="text-reserve-accent text-[10px] font-black tracking-[0.3em] uppercase mb-8">{loc.location}</p>
+                <div className="h-px w-full bg-white/5 mb-8" />
+                <p className="text-white/40 text-sm leading-relaxed mb-10 font-medium">{loc.address}</p>
+                <button 
+                   onClick={() => navigate("/contact")}
+                   className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.25em] group-hover:text-reserve-accent transition-all"
+                >
+                  Consultation Request <ArrowRight size={16} className="-rotate-45" />
+                </button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CTA FOOTER SECTION */}
+      <section className="relative py-48 bg-[#f0ece2] flex flex-col items-center justify-center overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="text-base md:text-lg text-black/80 font-medium max-w-2xl mx-auto leading-relaxed"
+          className="relative z-10 text-center px-6 text-black"
         >
-          Each of our venues are built around a sense of community.
-          Where everyone from die-hard players to first timers are
-          welcome to experience our premier club services.
-        </motion.p>
-      </section>
-
-      {/* Club Sections */}
-      <section className="bg-white">
-        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:min-h-[600px]">
-          <motion.div
-            variants={horizontalReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="relative overflow-hidden h-[350px] md:h-auto order-2 md:order-1"
+          <h2 className="text-6xl md:text-[8rem] font-black uppercase italic tracking-tighter leading-[0.8] mb-12">
+            BUILD YOUR <br /> LEGACY
+          </h2>
+          <p className="text-black/60 text-lg md:text-xl font-medium mb-16 max-w-2xl mx-auto uppercase">
+            Partner with India’s premier sports architects to bring world-class facilities to your community.
+          </p>
+          <button
+            onClick={() => navigate("/contact")}
+            className="px-20 py-8 bg-black text-[#f0ece2] rounded-full text-xs font-black uppercase tracking-[0.4em] hover:bg-reserve-accent transition-all shadow-2xl"
           >
-            <img
-              src="https://images.unsplash.com/photo-1646649851780-d9701b7c3c04?q=80&w=1200&auto=format&fit=crop"
-              alt="Earls Court"
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-          </motion.div>
-          <div className="flex items-center px-8 py-12 md:px-16 lg:px-24 order-1 md:order-2">
-            <motion.div
-              variants={horizontalReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="max-w-md"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-4 tracking-tighter uppercase italic" style={{ fontFamily: "'Inter', sans-serif" }}>Earls Court</h2>
-              <h3 className="text-reserve-accent text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 font-black">Our vibrant social hub.</h3>
-              <p className="text-sm text-black/60 mb-8 leading-relaxed">
-                Nestled in the heart of West London, our Earls Court club offers the ultimate on-and-off court experience.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <button className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors">View Club</button>
-                <button className="px-8 py-3 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:border-black transition-colors">Book Court</button>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-        <ScrollLine align="right" />
-      </section>
-
-      <section className="bg-white">
-        <ScrollLine align="left" />
-        <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px] md:min-h-[600px]">
-          <div className="flex items-center px-8 py-12 md:px-16 lg:px-24">
-            <motion.div
-              variants={horizontalReveal}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="max-w-md"
-            >
-              <h2 className="text-4xl md:text-5xl lg:text-7xl font-black mb-4 tracking-tighter uppercase italic" style={{ fontFamily: "'Inter', sans-serif" }}>The O2</h2>
-              <h3 className="text-reserve-accent text-[10px] md:text-xs uppercase tracking-[0.5em] mb-6 font-black">Full club serving soon.</h3>
-              <p className="text-sm text-black/60 mb-8 leading-relaxed">
-                Play goes on at our iconic riverside venue at The O2, where two temporary outdoor courts are now open.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <button className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors">View Club</button>
-                <button className="px-8 py-3 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:border-black transition-colors">Book Court</button>
-              </div>
-            </motion.div>
-          </div>
-          <motion.div
-            variants={horizontalReveal}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="relative overflow-hidden h-[350px] md:h-auto"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1646649852365-3e89e23dee7b?q=80&w=1200&auto=format&fit=crop"
-              alt="The O2"
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-            />
-          </motion.div>
+            Consult With Us
+          </button>
+        </motion.div>
+        
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45vw] font-black text-black/[0.03] uppercase pointer-events-none select-none italic tracking-tighter leading-none">
+          LEGACY
         </div>
       </section>
 
-      <GreenCTASection />
     </div>
   );
 };

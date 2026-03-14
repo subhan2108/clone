@@ -67,7 +67,12 @@ const Clubs = () => {
                   {club.description}
                 </p>
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <button className="btn-primary">View Club</button>
+                  <button 
+                    onClick={() => window.open("https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr", "_blank")}
+                    className="btn-primary"
+                  >
+                    View Club
+                  </button>
                   <button className="btn-outline">Book Court</button>
                 </div>
               </div>

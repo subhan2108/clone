@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const OurStory = () => {
   const navigate = useNavigate();
   return (
-    <div className="bg-black text-white min-h-screen flex flex-col pt-32">
+    <div className="bg-black text-white min-h-screen flex flex-col">
       {/* Hero Section */}
-      <section className="px-6 py-12 md:py-24 flex flex-col items-center justify-center text-center max-w-[1400px] mx-auto">
+      <section className="px-6 min-h-screen flex flex-col items-center justify-center text-center max-w-[1400px] mx-auto pt-32 transition-all">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -15,7 +15,7 @@ const OurStory = () => {
           className="w-full"
         >
           <h1 className="text-4xl md:text-7xl lg:text-[5.5rem] font-bold uppercase tracking-[-0.04em] leading-[0.9] mb-12 flex flex-col items-center">
-            <span>Delhi’s premier destination for</span>
+            <span>India's premier destination for</span>
             <span>Padel and Pickleball</span>
           </h1>
 

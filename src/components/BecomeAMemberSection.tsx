@@ -35,7 +35,7 @@ const BecomeAMemberSection = () => {
               textRendering: 'optimizeLegibility'
             }}
           >
-            Become a <br /> Member
+            JOIN <br /> THE CLUB
           </h2>
         </motion.div>
 
@@ -50,7 +50,7 @@ const BecomeAMemberSection = () => {
           }}
         >
           <h2 className="relative z-10 text-4xl md:text-5xl font-heading font-black uppercase mb-6 text-black tracking-tighter leading-none">
-            COME PLAY!
+            COMING SOON
           </h2>
           <p className="relative z-10 text-base md:text-xl text-black font-body font-medium leading-tight mb-10 max-w-[380px]">
             Built for a community of people that embrace a life of athletic elegance; the spirit of competition and the pleasure of style.
@@ -65,7 +65,7 @@ const BecomeAMemberSection = () => {
             
             {/* Inner "Pill" Button */}
             <div className="relative z-10 px-10 py-4 bg-black rounded-full text-white uppercase tracking-[0.15em] text-[10px] font-bold shadow-xl">
-              Become a Member
+              COMING SOON
             </div>
           </button>
         </motion.div>
