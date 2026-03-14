@@ -12,34 +12,34 @@ const Services = () => {
   const navigate = useNavigate();
   const heroRef = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
-  
+
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   const services = [
     {
       title: "Padel Courts",
-      image: "https://images.unsplash.com/photo-1646649853549-80a5682fd65b?q=80&w=1200&auto=format&fit=crop",
+      image: "https://i.postimg.cc/xCBKNGNh/cr5.jpg",
       location: "India's Premiere Choice"
     },
     {
       title: "Pickleball Courts",
-      image: "https://images.unsplash.com/photo-1610484196191-49b06213be02?q=80&w=1200&auto=format&fit=crop",
+      image: "https://i.postimg.cc/Pq3bTnXG/cr3.jpg",
       location: "Fast-Paced Community Play"
     },
     {
       title: "Tennis Courts",
-      image: "https://images.unsplash.com/photo-1595435064215-99298a44d8b5?q=80&w=1200&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1599586120429-48281b6f0ece?q=80&w=2000&auto=format&fit=crop",
       location: "Professional Surface Standards"
     },
     {
       title: "Cricket & Football Turf",
-      image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2000&auto=format&fit=crop",
       location: "High-Density Multi-Purpose Turf"
     },
     {
       title: "Basketball Courts",
-      image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
+      image: "https://i.postimg.cc/JnFx8D3V/ball-courts-500x500.webp",
       location: "Performance Hardwood & Acrylic"
     },
     {
@@ -49,18 +49,22 @@ const Services = () => {
     }
   ];
 
-  const fadeInUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
-      y: 0, 
-      transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
-    }
+  const verticalRevealVariants = {
+    hidden: { clipPath: "inset(100% 0 0 0)", opacity: 0 },
+    visible: (i: number) => ({
+      clipPath: "inset(0 0 0 0)",
+      opacity: 1,
+      transition: {
+        duration: 1.2,
+        ease: [0.22, 1, 0.36, 1],
+        delay: i * 0.15
+      }
+    })
   };
 
   return (
     <div className="bg-[#0a0a0a] text-[#f0ece2] min-h-screen font-sans overflow-x-hidden pt-20 transition-all duration-300">
-      
+
       {/* 1. HERO SECTION */}
       <section ref={heroRef} className="relative h-[80vh] w-full flex flex-col items-center justify-center overflow-hidden">
         <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
@@ -81,24 +85,26 @@ const Services = () => {
           >
             Infrastructure Excellence
           </motion.p>
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          <motion.h1
+            initial="hidden"
+            animate="visible"
+            variants={verticalRevealVariants}
+            custom={1}
             className="text-6xl md:text-8xl lg:text-[11rem] font-black leading-[0.8] tracking-tighter mb-12 uppercase italic"
-            style={{ 
-              fontFamily: "'Inter', sans-serif", 
+            style={{
+              fontFamily: "'Inter', sans-serif",
               color: '#f0ece2',
               letterSpacing: '-0.04em'
             }}
           >
-            OUR <br /> SERVICES
+            MASTERING <br /> THE GAME
           </motion.h1>
-          
+
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
+            initial="hidden"
+            animate="visible"
+            variants={verticalRevealVariants}
+            custom={2}
             className="max-w-xl mx-auto border-t border-white/10 pt-8"
           >
             <p className="text-white/40 text-sm md:text-base uppercase tracking-widest font-medium leading-relaxed">
@@ -115,12 +121,13 @@ const Services = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeInUp}
+            variants={verticalRevealVariants}
+            custom={0}
           >
             <div className="flex items-center justify-center gap-4 mb-10">
-               <div className="h-px w-8 bg-reserve-accent" />
-               <span className="text-[10px] font-black tracking-[0.4em] text-reserve-accent uppercase">Technical Standards</span>
-               <div className="h-px w-8 bg-reserve-accent" />
+              <div className="h-px w-8 bg-reserve-accent" />
+              <span className="text-[10px] font-black tracking-[0.4em] text-reserve-accent uppercase">Technical Standards</span>
+              <div className="h-px w-8 bg-reserve-accent" />
             </div>
             <h2
               className="font-heading font-black uppercase leading-[1.1] mb-8"
@@ -139,23 +146,23 @@ const Services = () => {
                 lineHeight: 1.8,
               }}
             >
-              We take pride in our global partnership with world-renowned sports infrastructure manufacturers. 
-              Our alliance brings together years of craftsmanship and technical expertise 
-              to provide state-of-the-art court installations across India. 
-              From initial consultancy to final construction, we ensure every project meets 
+              We take pride in our global partnership with world-renowned sports infrastructure manufacturers.
+              Our alliance brings together years of craftsmanship and technical expertise
+              to provide state-of-the-art court installations across India.
+              From initial consultancy to final construction, we ensure every project meets
               international professional standards.
             </p>
           </motion.div>
 
           {/* Partner Indicators */}
           <div className="mt-20 flex flex-wrap justify-center gap-12 md:gap-24 items-center opacity-30 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-700">
-             <div className="flex flex-col items-center gap-2">
-                <Globe size={40} />
-                <span className="text-[9px] font-black tracking-[0.2em]">GLOBAL PARTNER</span>
-             </div>
-             <div className="text-2xl font-black italic tracking-tighter uppercase">Sky Padel</div>
-             <div className="text-2xl font-black italic tracking-tighter uppercase">Royal Padel</div>
-             <div className="text-2xl font-black italic tracking-tighter uppercase">Elite Turf</div>
+            <div className="flex flex-col items-center gap-2">
+              <Globe size={40} />
+              <span className="text-[9px] font-black tracking-[0.2em]">GLOBAL PARTNER</span>
+            </div>
+            <div className="text-2xl font-black italic tracking-tighter uppercase">Sky Padel</div>
+            <div className="text-2xl font-black italic tracking-tighter uppercase">Royal Padel</div>
+            <div className="text-2xl font-black italic tracking-tighter uppercase">Elite Turf</div>
           </div>
         </div>
       </section>
@@ -167,10 +174,11 @@ const Services = () => {
             {services.map((service, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, delay: idx * 0.1 }}
+                variants={verticalRevealVariants}
+                custom={idx}
                 className="group flex flex-col"
               >
                 {/* Image Container */}
@@ -192,7 +200,7 @@ const Services = () => {
                     </span>
                   </div>
 
-                  <h3 
+                  <h3
                     className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-8 leading-none"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
@@ -232,9 +240,11 @@ const Services = () => {
             ].map((loc, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial="hidden"
+                whileInView="visible"
                 viewport={{ once: true }}
+                variants={verticalRevealVariants}
+                custom={idx}
                 className="group bg-zinc-950 p-12 rounded-[2rem] border border-white/5 hover:border-reserve-accent/50 transition-all duration-500"
               >
                 <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-10 group-hover:bg-reserve-accent/10 transition-colors">
@@ -244,9 +254,9 @@ const Services = () => {
                 <p className="text-reserve-accent text-[10px] font-black tracking-[0.3em] uppercase mb-8">{loc.location}</p>
                 <div className="h-px w-full bg-white/5 mb-8" />
                 <p className="text-white/40 text-sm leading-relaxed mb-10 font-medium">{loc.address}</p>
-                <button 
-                   onClick={() => navigate("/contact")}
-                   className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.25em] group-hover:text-reserve-accent transition-all"
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.25em] group-hover:text-reserve-accent transition-all"
                 >
                   Consultation Request <ArrowRight size={16} className="-rotate-45" />
                 </button>
@@ -259,9 +269,11 @@ const Services = () => {
       {/* 5. CTA FOOTER SECTION */}
       <section className="relative py-48 bg-[#f0ece2] flex flex-col items-center justify-center overflow-hidden">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true }}
+          variants={verticalRevealVariants}
+          custom={0}
           className="relative z-10 text-center px-6 text-black"
         >
           <h2 className="text-6xl md:text-[8rem] font-black uppercase italic tracking-tighter leading-[0.8] mb-12">
@@ -277,7 +289,7 @@ const Services = () => {
             Consult With Us
           </button>
         </motion.div>
-        
+
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[45vw] font-black text-black/[0.03] uppercase pointer-events-none select-none italic tracking-tighter leading-none">
           LEGACY
         </div>

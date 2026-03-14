@@ -9,7 +9,7 @@ import { Mail, MapPin, ArrowRight, Instagram, Linkedin, Phone, X, ChevronLeft, C
 const Contact = () => {
   const formSectionRef = useRef<HTMLElement>(null);
   const sliderRef = useRef<HTMLDivElement>(null);
-  
+
   // Dragging Implementation
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
@@ -39,7 +39,7 @@ const Contact = () => {
     "/assets/cr6.jpeg",
     "/assets/cr7.jpeg"
   ];
-  
+
   // Tripled array for infinite seamless loop
   const images = [...baseImages, ...baseImages, ...baseImages];
 
@@ -63,23 +63,23 @@ const Contact = () => {
         e.clientY >= rect.top &&
         e.clientY <= rect.bottom
       );
-      
+
       setIsHoveringSlider(isInside);
     };
 
     window.addEventListener("mousemove", handleGlobalMouseMove);
     window.addEventListener("scroll", () => {
-        // Redetect on scroll to ensure circle hides if element moves away
-        const rect = sliderRef.current?.getBoundingClientRect();
-        if (rect) {
-            const isInside = (
-                cursorX.get() >= rect.left &&
-                cursorX.get() <= rect.right &&
-                cursorY.get() >= rect.top &&
-                cursorY.get() <= rect.bottom
-            );
-            setIsHoveringSlider(isInside);
-        }
+      // Redetect on scroll to ensure circle hides if element moves away
+      const rect = sliderRef.current?.getBoundingClientRect();
+      if (rect) {
+        const isInside = (
+          cursorX.get() >= rect.left &&
+          cursorX.get() <= rect.right &&
+          cursorY.get() >= rect.top &&
+          cursorY.get() <= rect.bottom
+        );
+        setIsHoveringSlider(isInside);
+      }
     });
 
     return () => {
@@ -114,10 +114,10 @@ const Contact = () => {
 
   const moveSlider = (e: React.MouseEvent) => {
     if (!isDragging || !sliderRef.current) return;
-    
+
     e.preventDefault();
     const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 2; 
+    const walk = (x - startX) * 2;
     sliderRef.current.scrollLeft = scrollLeft - walk;
 
     // Loop check during drag
@@ -186,7 +186,7 @@ const Contact = () => {
           .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         `}
       </style>
-      
+
       {/* 1. HERO SECTION */}
       <section className="relative h-[80vh] md:h-screen w-full flex items-center justify-center overflow-hidden">
         <motion.img
@@ -227,35 +227,35 @@ const Contact = () => {
               GET IN <br /> TOUCH
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
-              <div className="space-y-4">
-                <h4 className="text-[11px] uppercase tracking-[0.4em] font-black text-black/40">Our Location</h4>
-                <p className="text-xl md:text-2xl font-medium leading-tight">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+              <div className="space-y-1">
+                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">Our Location</h4>
+                <p className="text-lg md:text-xl font-medium leading-tight">
                   Gulmohar Park, <br />
                   New Delhi, Delhi, India
                 </p>
-                <a href="#" className="inline-block text-xs border-b border-black/30 pb-1 mt-2 hover:border-black transition-all">Get Directions</a>
+                <a href="#" className="inline-block text-[10px] border-b border-black/30 pb-0.5 mt-0.5 hover:border-black transition-all">Get Directions</a>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="text-[11px] uppercase tracking-[0.4em] font-black text-black/40">Email</h4>
-                <a href="mailto:info@thepad.in" className="text-xl md:text-2xl font-medium underline block hover:opacity-70 transition-opacity">
+              <div className="space-y-1">
+                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">Email</h4>
+                <a href="mailto:info@thepad.in" className="text-lg md:text-xl font-medium underline block hover:opacity-70 transition-opacity">
                   info@thepad.in
                 </a>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="text-[11px] uppercase tracking-[0.4em] font-black text-black/40">Phone</h4>
-                <a href="tel:+919999999999" className="text-xl md:text-2xl font-medium underline block hover:opacity-70 transition-opacity">
+              <div className="space-y-1">
+                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">Phone</h4>
+                <a href="tel:+919999999999" className="text-lg md:text-xl font-medium underline block hover:opacity-70 transition-opacity">
                   +91 99999 99999
                 </a>
               </div>
 
-              <div className="space-y-4">
-                <h4 className="text-[11px] uppercase tracking-[0.4em] font-black text-black/40">WhatsApp</h4>
-                <div className="flex flex-col gap-2">
-                  <a href="#" className="text-xl font-medium underline hover:opacity-70 transition-opacity">Chat with Padel</a>
-                  <a href="#" className="text-xl font-medium underline hover:opacity-70 transition-opacity">Chat with Movement</a>
+              <div className="space-y-1">
+                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">WhatsApp</h4>
+                <div className="flex flex-col gap-0.5">
+                  <a href="#" className="text-lg font-medium underline hover:opacity-70 transition-opacity">Chat with Padel</a>
+                  <a href="#" className="text-lg font-medium underline hover:opacity-70 transition-opacity">Chat with Movement</a>
                 </div>
               </div>
             </div>
@@ -279,45 +279,45 @@ const Contact = () => {
               <p className="text-black/50 text-base md:text-lg">Sign up to receive news and updates.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-10">
-              <div className="grid grid-cols-1 gap-10">
-                <div className="border-b-2 border-black/10 focus-within:border-black transition-all">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="grid grid-cols-1 gap-4">
+                <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
                   <input
                     required
                     type="text"
                     placeholder="NAME"
-                    className="w-full bg-transparent p-4 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
+                    className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
                 </div>
-                <div className="border-b-2 border-black/10 focus-within:border-black transition-all">
+                <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
                   <input
                     required
                     type="email"
                     placeholder="EMAIL"
-                    className="w-full bg-transparent p-4 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
+                    className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   />
                 </div>
-                <div className="border-b-2 border-black/10 focus-within:border-black transition-all">
+                <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
                   <input
                     type="tel"
                     placeholder="PHONE"
-                    className="w-full bg-transparent p-4 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
+                    className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                   />
                 </div>
               </div>
 
-              <div className="border-b-2 border-black/10 focus-within:border-black transition-all">
+              <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
                 <textarea
                   required
-                  rows={4}
+                  rows={2}
                   placeholder="MESSAGE"
-                  className="w-full bg-transparent p-4 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest resize-none"
+                  className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest resize-none"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
@@ -362,7 +362,7 @@ const Contact = () => {
               key={idx}
               className="flex-shrink-0 w-[300px] md:w-[450px] aspect-[3/4] overflow-hidden rounded-xl shadow-lg pointer-events-auto"
               onClick={() => {
-                  if(!isDragging) setSelectedImgIndex(idx % baseImages.length);
+                if (!isDragging) setSelectedImgIndex(idx % baseImages.length);
               }}
             >
               <img
