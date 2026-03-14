@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useSpring } from "motion/react";
-import { Mail, MapPin, ArrowRight, Instagram, Linkedin, Phone, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Mail, MapPin, ArrowRight, Instagram, Linkedin, Phone, X, ChevronLeft, ChevronRight, Star, Check } from "lucide-react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 /**
  * CONTACT PAGE
@@ -11,16 +12,28 @@ const Contact = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
 
   // Dragging Implementation
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
-
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
+    service: "",
     message: ""
   });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  // Pre-fill service from URL
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const serviceParam = params.get('service');
+    if (serviceParam) {
+      setFormData(prev => ({ ...prev, service: serviceParam }));
+    }
+  }, [location]);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [selectedImgIndex, setSelectedImgIndex] = useState<number | null>(null);
   const [isHoveringSlider, setIsHoveringSlider] = useState(false);
@@ -152,13 +165,37 @@ const Contact = () => {
     }
   };
 
+  const validateForm = () => {
+    const newErrors: Record<string, string> = {};
+    
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+    
+    if (formData.phone && !/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
+      newErrors.phone = "Invalid phone number";
+    }
+    
+    if (!formData.service) newErrors.service = "Please select a service";
+    if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validateForm()) return;
+    
     setStatus("loading");
+    setErrors({});
 
     try {
       const wpUrl = import.meta.env.VITE_WP_API_URL.replace('/wp/v2', '');
-      const response = await fetch(`${wpUrl}/thepad/v1/submit-inquiry`, {
+      const response = await fetch(`${wpUrl}/thepad/v1/contact-form`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -168,7 +205,6 @@ const Contact = () => {
 
       if (response.ok) {
         setStatus("success");
-        setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
         setStatus("error");
       }
@@ -279,67 +315,176 @@ const Contact = () => {
               <p className="text-black/50 text-base md:text-lg">Sign up to receive news and updates.</p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 gap-4">
-                <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
-                  <input
-                    required
-                    type="text"
-                    placeholder="NAME"
-                    className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  />
-                </div>
-                <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
-                  <input
-                    required
-                    type="email"
-                    placeholder="EMAIL"
-                    className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  />
-                </div>
-                <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
-                  <input
-                    type="tel"
-                    placeholder="PHONE"
-                    className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  />
-                </div>
-              </div>
+            {status === "success" ? (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                className="bg-[#0a0a0a] text-white p-16 rounded-[2.5rem] text-center border border-white/5 relative overflow-hidden shadow-2xl"
+              >
+                {/* Background Glow */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-reserve-accent/10 blur-[80px] rounded-full pointer-events-none" />
 
-              <div className="border-b-[1px] border-black/20 focus-within:border-black transition-all">
-                <textarea
-                  required
-                  rows={2}
-                  placeholder="MESSAGE"
-                  className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 uppercase tracking-widest resize-none"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                />
-              </div>
+                <div className="relative z-10">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", damping: 12, stiffness: 200, delay: 0.2 }}
+                    className="w-24 h-24 bg-reserve-accent rounded-full flex items-center justify-center mx-auto mb-10 shadow-[0_0_40px_rgba(234,88,12,0.3)]"
+                  >
+                    <Check className="text-white" size={48} strokeWidth={3} />
+                  </motion.div>
 
-              <div className="pt-4">
-                <button
-                  type="submit"
-                  disabled={status === "loading"}
-                  className="w-full px-12 py-5 bg-black text-white rounded-full text-xs font-black uppercase tracking-[0.4em] hover:scale-105 active:scale-95 transition-all disabled:opacity-50"
-                >
-                  {status === "loading" ? "Processing..." : "Submit Inquiry"}
-                </button>
-              </div>
+                  <h3 className="text-5xl font-black uppercase italic tracking-tighter mb-6 leading-none" style={{ fontFamily: "'Inter', sans-serif" }}>
+                    THANK YOU <br /> FOR REACHING OUT
+                  </h3>
+                  
+                  <p className="text-white/40 mb-12 uppercase tracking-[0.2em] text-xs font-semibold max-w-xs mx-auto leading-relaxed">
+                    YOUR INQUIRY HAS BEEN LOGGED. OUR TEAM WILL BE IN TOUCH WITHIN 24 HOURS.
+                  </p>
 
-              {status === "success" && (
-                <p className="text-green-600 font-bold text-center uppercase tracking-widest text-xs">Message sent successfully.</p>
-              )}
-              {status === "error" && (
-                <p className="text-red-500 font-bold text-center uppercase tracking-widest text-xs">Something went wrong. Try again.</p>
-              )}
-            </form>
+                  <div className="flex flex-col items-center gap-6">
+                    <button
+                      onClick={() => navigate("/")}
+                      className="px-12 py-4 bg-white text-black rounded-full text-[11px] font-black uppercase tracking-[0.3em] hover:bg-reserve-accent hover:text-white transition-all w-full sm:w-auto cursor-pointer"
+                    >
+                      Return Home
+                    </button>
+                    
+                    <button
+                      onClick={() => setStatus("idle")}
+                      className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-reserve-accent transition-all border-b border-transparent hover:border-reserve-accent pb-1 cursor-pointer"
+                    >
+                      Send another message
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 gap-6">
+                  <div className="space-y-1">
+                    <div className={`border-b-[1px] transition-all text-black ${errors.name ? 'border-red-500' : 'border-black/20 focus-within:border-black'}`}>
+                      <input
+                        type="text"
+                        placeholder="NAME"
+                        className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 placeholder:uppercase placeholder:tracking-widest"
+                        value={formData.name}
+                        onChange={(e) => {
+                          setFormData({ ...formData, name: e.target.value });
+                          if (errors.name) setErrors({...errors, name: ''});
+                        }}
+                      />
+                    </div>
+                    <AnimatePresence>
+                      {errors.name && (
+                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.name}</motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className={`border-b-[1px] transition-all text-black ${errors.email ? 'border-red-500' : 'border-black/20 focus-within:border-black'}`}>
+                      <input
+                        type="email"
+                        placeholder="EMAIL"
+                        className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 placeholder:uppercase placeholder:tracking-widest"
+                        value={formData.email}
+                        onChange={(e) => {
+                          setFormData({ ...formData, email: e.target.value });
+                          if (errors.email) setErrors({...errors, email: ''});
+                        }}
+                      />
+                    </div>
+                    <AnimatePresence>
+                      {errors.email && (
+                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.email}</motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className={`border-b-[1px] transition-all text-black ${errors.phone ? 'border-red-500' : 'border-black/20 focus-within:border-black'}`}>
+                      <input
+                        type="tel"
+                        placeholder="PHONE"
+                        className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 placeholder:uppercase placeholder:tracking-widest"
+                        value={formData.phone}
+                        onChange={(e) => {
+                          setFormData({ ...formData, phone: e.target.value });
+                          if (errors.phone) setErrors({...errors, phone: ''});
+                        }}
+                      />
+                    </div>
+                    <AnimatePresence>
+                      {errors.phone && (
+                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.phone}</motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  <div className="space-y-1">
+                    <div className={`border-b-[1px] transition-all text-black ${errors.service ? 'border-red-500' : 'border-black/20 focus-within:border-black'}`}>
+                      <select
+                        className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold text-black/40 placeholder:uppercase placeholder:tracking-widest appearance-none cursor-pointer"
+                        value={formData.service}
+                        onChange={(e) => {
+                          setFormData({ ...formData, service: e.target.value });
+                          if (errors.service) setErrors({...errors, service: ''});
+                        }}
+                      >
+                        <option value="" disabled>SELECT SERVICE</option>
+                        <option value="Padel Courts">Padel Courts</option>
+                        <option value="Pickleball Courts">Pickleball Courts</option>
+                        <option value="Tennis Courts">Tennis Courts</option>
+                        <option value="Cricket & Football Turf">Cricket & Football Turf</option>
+                        <option value="Basketball Courts">Basketball Courts</option>
+                        <option value="Badminton Courts">Badminton Courts</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                      </select>
+                    </div>
+                    <AnimatePresence>
+                      {errors.service && (
+                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.service}</motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                <div className="space-y-1 mt-6">
+                  <div className={`border-b-[1px] transition-all text-black ${errors.message ? 'border-red-500' : 'border-black/20 focus-within:border-black'}`}>
+                    <textarea
+                      rows={2}
+                      placeholder="MESSAGE"
+                      className="w-full bg-transparent pt-4 pb-1 px-0 outline-none text-base font-bold placeholder:text-black/20 placeholder:uppercase placeholder:tracking-widest resize-none"
+                      value={formData.message}
+                      onChange={(e) => {
+                        setFormData({ ...formData, message: e.target.value });
+                        if (errors.message) setErrors({...errors, message: ''});
+                      }}
+                    />
+                  </div>
+                  <AnimatePresence>
+                    {errors.message && (
+                      <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.message}</motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div className="pt-4">
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full px-12 py-5 bg-black text-white rounded-full text-xs font-black uppercase tracking-[0.4em] hover:scale-105 active:scale-95 transition-all disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+                  >
+                    {status === "loading" ? "Processing..." : "Submit Inquiry"}
+                  </button>
+                </div>
+
+                {status === "error" && (
+                  <p className="text-red-500 font-bold text-center uppercase tracking-widest text-xs">Something went wrong. Try again.</p>
+                )}
+              </form>
+            )}
           </motion.div>
 
         </div>

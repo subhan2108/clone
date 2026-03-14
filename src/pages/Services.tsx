@@ -211,8 +211,8 @@ const Services = () => {
 
                   {/* Build Your Court Now Button */}
                   <button
-                    onClick={() => navigate("/contact")}
-                    className="flex items-center gap-4 group/btn"
+                    onClick={() => navigate(`/contact?service=${encodeURIComponent(service.title)}`)}
+                    className="flex items-center gap-4 group/btn cursor-pointer"
                   >
                     <span className="text-[11px] font-black uppercase tracking-[0.3em] group-hover/btn:text-reserve-accent transition-colors">
                       Build Your Court Now
@@ -256,7 +256,7 @@ const Services = () => {
                 <p className="text-white/40 text-sm leading-relaxed mb-10 font-medium">{loc.address}</p>
                 <button
                   onClick={() => navigate("/contact")}
-                  className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.25em] group-hover:text-reserve-accent transition-all"
+                  className="flex items-center gap-4 text-[11px] font-black uppercase tracking-[0.25em] group-hover:text-reserve-accent transition-all cursor-pointer"
                 >
                   Consultation Request <ArrowRight size={16} className="-rotate-45" />
                 </button>
@@ -284,7 +284,7 @@ const Services = () => {
           </p>
           <button
             onClick={() => navigate("/contact")}
-            className="px-20 py-8 bg-black text-[#f0ece2] rounded-full text-xs font-black uppercase tracking-[0.4em] hover:bg-reserve-accent transition-all shadow-2xl"
+            className="px-20 py-8 bg-black text-[#f0ece2] rounded-full text-xs font-black uppercase tracking-[0.4em] hover:bg-reserve-accent transition-all shadow-2xl cursor-pointer"
           >
             Consult With Us
           </button>
