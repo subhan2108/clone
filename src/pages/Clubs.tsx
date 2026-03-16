@@ -190,7 +190,7 @@ const Services = () => {
               letterSpacing: '-0.04em'
             }}
           >
-            Our<br />Services
+            Our<br />Clubs
           </h1>
         </motion.div>
       </section>

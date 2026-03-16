@@ -27,7 +27,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   
   // Pages that feature a full-screen hero and should start with a transparent navbar
-  const pagesWithHero = ["/", "/contact"];
+  const pagesWithHero = ["/", "/contact", "/clubs", "/services"];
   const isTransparentPage = pagesWithHero.includes(location.pathname);
 
   return (
