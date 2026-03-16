@@ -56,13 +56,23 @@ const Footer = () => {
               <li><Link to="/services" className="hover:text-reserve-accent cursor-pointer transition-colors block">Services</Link></li>
               <li><Link to="/clubs" className="hover:text-reserve-accent cursor-pointer transition-colors block">Clubs</Link></li>
               <li><Link to="/our-story" className="hover:text-reserve-accent cursor-pointer transition-colors block">Our Story</Link></li>
-              <li className="hover:text-reserve-accent cursor-pointer transition-colors">Book a Court</li>
+              <li 
+                onClick={() => window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank")}
+                className="hover:text-reserve-accent cursor-pointer transition-colors"
+              >
+                Book a Court
+              </li>
             </ul>
             <ul className="flex flex-col gap-5 text-[11px] uppercase tracking-[0.35em] font-bold text-white/80" style={{ fontFamily: "'Poppins', sans-serif" }}>
               <li className="text-white/40 mb-2">Social</li>
               <li><a href="https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:text-reserve-accent transition-colors">Instagram</a></li>
               <li className="hover:text-reserve-accent cursor-pointer transition-colors">LinkedIn</li>
-              <li className="hover:text-reserve-accent cursor-pointer transition-colors">WhatsApp</li>
+              <li 
+                onClick={() => window.open("https://chat.whatsapp.com/E9XA6ERXJzDEDE8bL9nu6U", "_blank")}
+                className="hover:text-reserve-accent cursor-pointer transition-colors"
+              >
+                WhatsApp
+              </li>
             </ul>
           </div>
         </div>

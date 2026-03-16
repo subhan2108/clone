@@ -57,12 +57,23 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="inline-flex flex-col md:flex-row items-center border border-white/20 rounded-[50px] p-1.5 backdrop-blur-md bg-white/5"
         >
-          <button className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent transition-all rounded-[40px] duration-500 whitespace-nowrap">
+          <button 
+            onClick={() => window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank")}
+            className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent transition-all rounded-[40px] duration-500 whitespace-nowrap"
+          >
             Book a Court
           </button>
-          <button className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent transition-all rounded-[40px] duration-500 whitespace-nowrap">
-            Become a Member
-          </button>
+          <div className="relative inline-block">
+            <span className="absolute -top-3 -left-1 bg-[#FF6A00] text-white text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider transform -rotate-3 shadow-md z-20">
+              Coming Soon
+            </span>
+            <button 
+              className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent/50 transition-all rounded-[40px] duration-500 whitespace-nowrap cursor-default"
+              onClick={(e) => e.preventDefault()}
+            >
+              Become a Member
+            </button>
+          </div>
         </motion.div>
       </div>
 

@@ -11,7 +11,7 @@ const Home = () => {
     <>
       <Hero />
       <LatestNews />
-      <ElevateSection />
+      {/* <ElevateSection /> */}
       {/* <MeetThePros /> */}
       <ClubAmenities />
       <ParallaxImageSection />

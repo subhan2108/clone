@@ -60,7 +60,7 @@ const Navbar = () => {
         {/* Right Section: CTA Button (flex-1 ensures it occupies equal space as the left) */}
         <div className="flex-1 flex justify-end">
           <button
-            onClick={() => navigate("/services")}
+            onClick={() => window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank")}
             className="hidden lg:block text-[12px] uppercase tracking-[0.3em] font-black py-4 px-12 rounded-full border border-reserve-accent hover:bg-reserve-accent hover:text-white transition-all text-white whitespace-nowrap"
           >
             Book Your Court
@@ -100,7 +100,10 @@ const Navbar = () => {
             ))}
           </div>
           <div className="mt-auto pb-12">
-            <button className="w-full py-5 rounded-full border border-white/20 text-[10px] uppercase tracking-[0.3em] font-bold text-white">
+            <button 
+              onClick={() => window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank")}
+              className="w-full py-5 rounded-full border border-white/20 text-[10px] uppercase tracking-[0.3em] font-bold text-white"
+            >
               Book Your Court
             </button>
           </div>

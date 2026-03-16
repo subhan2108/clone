@@ -43,12 +43,12 @@ const darkCard = {
     "Experience the fastest growing sport in a social environment. Our pickleball sessions are perfect for meeting new people and staying active in the heart of Delhi.",
   buttonLabel: "Join Our Community",
   images: [
-    "https://images.unsplash.com/photo-1646649852046-b758d2d573f3?q=80&w=2000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1646649852365-3e89e23dee7b?q=80&w=2000&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1642182800428-26d7fef8300c?q=80&w=2000&auto=format&fit=crop",
+    "https://i.postimg.cc/CLRzJvdN/cr4.jpg",
+    "https://i.postimg.cc/Z5TY2V5F/cr5.jpg",
+    "https://i.postimg.cc/HW9hBgVC/cr1.jpg",
   ],
   thumbImage:
-    "https://images.unsplash.com/photo-1646649852365-3e89e23dee7b?q=80&w=2000&auto=format&fit=crop",
+    "https://i.postimg.cc/nhKSWGPL/cr3.jpg",
 };
 
 /* ─────────────────────────────────────────────────────────────
@@ -90,9 +90,9 @@ function useCarousel(total: number) {
 /* ─────────────────────────────────────────────────────────────
    MAIN EXPORT
 ───────────────────────────────────────────────────────────── */
-export function StickyLatestSection({ 
-  creamCard: customCream, 
-  darkCard: customDark 
+export function StickyLatestSection({
+  creamCard: customCream,
+  darkCard: customDark
 }: StickyLatestSectionProps) {
   const activeCream = customCream || creamCard;
   const activeDark = customDark || darkCard;
@@ -182,6 +182,13 @@ function CreamCard({ card }: { card: CardData }) {
 
           {/* CTA */}
           <button
+            onClick={() => {
+              if (card.buttonLabel.toLowerCase().includes('book')) {
+                window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank");
+              } else if (card.buttonLabel.toLowerCase().includes('community')) {
+                window.open("https://chat.whatsapp.com/E9XA6ERXJzDEDE8bL9nu6U", "_blank");
+              }
+            }}
             className="self-start mt-6 px-6 py-3 rounded-full text-xs font-semibold uppercase tracking-widest transition-all duration-300 hover:scale-105"
             style={{ background: '#FF6A00', color: '#fff' }}
           >
@@ -273,6 +280,13 @@ function DarkCard({ card }: { card: CardData }) {
             </p>
             {/* Ghost pill button */}
             <button
+              onClick={() => {
+                if (card.buttonLabel.toLowerCase().includes('book')) {
+                  window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank");
+                } else if (card.buttonLabel.toLowerCase().includes('community')) {
+                  window.open("https://chat.whatsapp.com/E9XA6ERXJzDEDE8bL9nu6U", "_blank");
+                }
+              }}
               className="self-start transition-all duration-300"
               style={{
                 fontSize: '0.72rem',
