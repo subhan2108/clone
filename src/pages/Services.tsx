@@ -50,20 +50,20 @@ const Services = () => {
   ];
 
   const verticalRevealVariants = {
-    hidden: { clipPath: "inset(100% 0 0 0)", opacity: 0 },
+    hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
-      clipPath: "inset(0 0 0 0)",
       opacity: 1,
+      y: 0,
       transition: {
-        duration: 1.2,
+        duration: 0.8,
         ease: [0.22, 1, 0.36, 1],
-        delay: i * 0.15
+        delay: i * 0.12
       }
     })
   };
 
   return (
-    <div className="bg-[#0a0a0a] text-[#f0ece2] min-h-screen font-sans overflow-x-hidden pt-20 transition-all duration-300">
+    <div className="bg-[#0a0a0a] text-[#f0ece2] min-h-screen font-sans overflow-x-hidden transition-all duration-300">
 
       {/* 1. HERO SECTION */}
       <section ref={heroRef} className="relative h-[80vh] w-full flex flex-col items-center justify-center overflow-hidden">
@@ -71,7 +71,7 @@ const Services = () => {
           <img
             src="https://images.unsplash.com/photo-1592910129841-3b8d1b1f092b?q=80&w=2070&auto=format&fit=crop"
             alt="Sports Infrastructure"
-            className="w-full h-full object-cover grayscale brightness-30 contrast-125 scale-105"
+            className="w-full h-full object-cover grayscale brightness-50 contrast-125 scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/80 via-transparent to-[#0a0a0a] z-10" />
         </motion.div>
@@ -90,7 +90,7 @@ const Services = () => {
             animate="visible"
             variants={verticalRevealVariants}
             custom={1}
-            className="text-6xl md:text-8xl lg:text-[11rem] font-black leading-[0.8] tracking-tighter mb-12 uppercase italic"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-[11rem] font-black leading-[0.8] tracking-tighter mb-12 uppercase italic"
             style={{
               fontFamily: "'Inter', sans-serif",
               color: '#f0ece2',
@@ -176,7 +176,7 @@ const Services = () => {
                 key={idx}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "-20px" }}
                 variants={verticalRevealVariants}
                 custom={idx}
                 className="group flex flex-col"
@@ -201,7 +201,7 @@ const Services = () => {
                   </div>
 
                   <h3
-                    className="text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-8 leading-none"
+                    className="text-3xl sm:text-4xl md:text-5xl font-black uppercase italic tracking-tighter mb-8 leading-none"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     {service.title}
@@ -276,7 +276,7 @@ const Services = () => {
           custom={0}
           className="relative z-10 text-center px-6 text-black"
         >
-          <h2 className="text-6xl md:text-[8rem] font-black uppercase italic tracking-tighter leading-[0.8] mb-12">
+          <h2 className="text-5xl sm:text-6xl md:text-[8rem] font-black uppercase italic tracking-tighter leading-[0.8] mb-12">
             BUILD YOUR <br /> LEGACY
           </h2>
           <p className="text-black/60 text-lg md:text-xl font-medium mb-16 max-w-2xl mx-auto uppercase">
