@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const OurStory = () => {
   const navigate = useNavigate();
@@ -49,12 +49,36 @@ const OurStory = () => {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <img
-              src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=1000&auto=format&fit=crop"
-              alt="Wayne Boich"
-              className="w-full aspect-square object-cover rounded-sm grayscale"
-              referrerPolicy="no-referrer"
-            />
+            <div className="grid grid-cols-2 gap-6">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl group bg-gray-100">
+                <video
+                  src="/assets/Jai Suneja.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  <p className="text-white text-[10px] font-bold uppercase tracking-[0.3em]">Jai Suneja</p>
+                </div>
+              </div>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl group bg-gray-100">
+                <video
+                  src="/assets/Shivam Bajaj.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
+                  <p className="text-white text-[10px] font-bold uppercase tracking-[0.3em]">Shivam Bajaj</p>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
@@ -65,17 +89,17 @@ const OurStory = () => {
             className="order-1 lg:order-2"
           >
             <p className="text-xs uppercase tracking-[0.3em] text-black/40 mb-4" style={{ fontFamily: "'Poppins', sans-serif" }}>Leadership</p>
-            <h2 className="text-4xl md:text-6xl font-black uppercase mb-12" style={{ fontFamily: "'Poppins', sans-serif" }}>About Our Founder</h2>
+            <h2 className="text-4xl md:text-6xl font-black uppercase mb-12" style={{ fontFamily: "'Poppins', sans-serif" }}>About Our Founders</h2>
             <div className="text-lg text-black/70 space-y-6 leading-relaxed">
               <p>
-                Wayne Boich, a former top-ranked junior tennis player and US Open Junior Competitor,
-                first experienced padel in 2013. The sport quickly became part of his daily routine,
-                and he passionately shared his love for padel with friends, family, and the community.
+                Jai Suneja and Shivam Bajaj, visionary athletes and entrepreneurs, have been the driving force
+                behind the padel revolution. Their journey began with a shared passion for the sport,
+                witnessing first-hand how it unites communities and fosters a unique spirit of competition.
               </p>
               <p>
-                Inspired by his passion, Wayne Boich is expanding the world of padel by sharing this
-                fast-paced, thrilling sport across multiple verticals, continuing to be the catalyst
-                behind its growth.
+                Inspired by this vision, they are expanding the world of padel across India,
+                sharing this fast-paced, thrilling sport through world-class infrastructure
+                and a community-first approach.
               </p>
             </div>
           </motion.div>
@@ -142,7 +166,7 @@ const ScrollStatementSection = () => {
             </motion.div>
 
             <motion.div style={{ opacity: opacity3, y: y3 }} className="flex flex-col">
-              <div className="group">
+              <Link to="/services" className="group cursor-pointer block">
                 <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-reserve-accent">
                   THE PAD <br /> AT GULMOHAR PARK
                 </h3>
@@ -150,7 +174,7 @@ const ScrollStatementSection = () => {
                   <div className="absolute top-1/2 left-0 h-[1.5px] w-full bg-reserve-accent" />
                   <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 rotate-45 w-2 h-2 border-t-[1.5px] border-r-[1.5px] border-reserve-accent" />
                 </div>
-              </div>
+              </Link>
             </motion.div>
           </div>
         </div>

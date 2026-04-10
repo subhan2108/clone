@@ -241,7 +241,12 @@ const Services = () => {
                 Professional grade Mondo turf designed for both competitive and casual players, providing perfect grip, shock absorption and ball bounce consistency.
               </p>
               <div className="flex flex-wrap gap-3">
-                <button className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors">View Club</button>
+                <button 
+                  onClick={() => window.open("https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr", "_blank")}
+                  className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors"
+                >
+                  View Club
+                </button>
                 <button 
                   onClick={() => window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank")}
                   className="px-8 py-3 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:border-black transition-colors"
@@ -272,7 +277,12 @@ const Services = () => {
                 Fast, social and addictive — pickleball courts built for everyone. Join our vibrant community for weekly social matches.
               </p>
               <div className="flex flex-wrap gap-3">
-                <button className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors">View Club</button>
+                <button 
+                  onClick={() => window.open("https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr", "_blank")}
+                  className="px-8 py-3 bg-black text-white rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:bg-reserve-accent transition-colors"
+                >
+                  View Club
+                </button>
                 <button 
                   onClick={() => window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank")}
                   className="px-8 py-3 bg-transparent border border-black/20 text-black rounded-full text-[10px] font-bold uppercase tracking-[0.2em] hover:border-black transition-colors"
