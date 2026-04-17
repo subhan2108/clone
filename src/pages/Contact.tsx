@@ -267,8 +267,8 @@ const Contact = () => {
               <div className="space-y-1">
                 <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">Our HQ</h4>
                 <p className="text-lg md:text-xl font-medium leading-tight">
-                  Gulmohar Park, <br />
-                  New Delhi, Delhi, India
+                  Ek Om House New Delhi - 17 <br />
+                  Block E Saket
                 </p>
                 <a href="#" className="inline-block text-[10px] border-b border-black/30 pb-0.5 mt-0.5 hover:border-black transition-all">Get Directions</a>
               </div>
