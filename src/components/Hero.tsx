@@ -13,7 +13,7 @@ const Hero = () => {
       <motion.div style={{ y, opacity }} className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10" />
         <video
-          src="/assets/serving-soon.mp4"
+          src="/Website Horizontal_SlowMo.mp4"
           autoPlay
           loop
           muted
@@ -57,13 +57,13 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.5 }}
           className="inline-flex flex-col md:flex-row items-center border border-white/20 rounded-[50px] p-1.5 backdrop-blur-md bg-white/5"
         >
-          <button 
+          <button
             onClick={() => window.open("https://hudle.in/venues/the-pad-gulmohar-club/267531", "_blank")}
             className="px-12 py-3.5 text-[11px] font-black uppercase tracking-[0.25em] text-white hover:bg-reserve-accent transition-all rounded-[40px] duration-500 whitespace-nowrap"
           >
             Book a Court
           </button>
-          
+
           {/* Dividers: Vertical for Desktop, Horizontal for Mobile */}
           <div className="w-px h-5 bg-white/20 hidden md:block mx-1" />
           <div className="w-full h-px bg-white/20 md:hidden my-1" />
@@ -72,7 +72,7 @@ const Hero = () => {
             <span className="absolute -top-2.5 -right-1 bg-[#FF6A00] text-white text-[7px] font-black px-1.5 py-0.5 rounded-full uppercase tracking-wider transform rotate-3 shadow-md z-20">
               Coming Soon
             </span>
-            <button 
+            <button
               className="px-12 py-3.5 text-[11px] font-bold uppercase tracking-[0.25em] text-white hover:bg-reserve-accent/50 transition-all rounded-[40px] duration-500 whitespace-nowrap cursor-default"
               onClick={(e) => e.preventDefault()}
             >

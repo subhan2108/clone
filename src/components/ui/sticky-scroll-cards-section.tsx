@@ -43,8 +43,10 @@ const darkCard = {
     "Experience the fastest growing sport in a social environment. Our pickleball sessions are perfect for meeting new people and staying active in the heart of Delhi.",
   buttonLabel: "Join Our Community",
   images: [
-    "https://i.postimg.cc/HW9hBgVC/cr1.jpg",
-    "https://i.postimg.cc/CLRzJvdN/cr4.jpg",
+    // "https://i.postimg.cc/HW9hBgVC/cr1.jpg",
+    "https://i.postimg.cc/wv5b5bCt/Bottom-Banner-Horizontal.jpg",
+    // "https://i.postimg.cc/CLRzJvdN/cr4.jpg",
+    "https://i.postimg.cc/sxv7fM9k/Bottom-Banner-Horizontal-2.jpg",
     "https://i.postimg.cc/Z5TY2V5F/cr5.jpg",
   ],
   thumbImage:

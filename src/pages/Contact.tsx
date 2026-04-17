@@ -167,18 +167,18 @@ const Contact = () => {
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
-    
+
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Invalid email format";
     }
-    
+
     if (formData.phone && !/^\+?[\d\s-]{10,}$/.test(formData.phone)) {
       newErrors.phone = "Invalid phone number";
     }
-    
+
     if (!formData.service) newErrors.service = "Please select a service";
     if (!formData.message.trim()) newErrors.message = "Message cannot be empty";
 
@@ -189,7 +189,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validateForm()) return;
-    
+
     setStatus("loading");
     setErrors({});
 
@@ -265,7 +265,7 @@ const Contact = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
               <div className="space-y-1">
-                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">Our Location</h4>
+                <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">Our HQ</h4>
                 <p className="text-lg md:text-xl font-medium leading-tight">
                   Gulmohar Park, <br />
                   New Delhi, Delhi, India
@@ -282,23 +282,23 @@ const Contact = () => {
 
               <div className="space-y-1">
                 <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">Phone</h4>
-                <a href="tel:+919999999999" className="text-lg md:text-xl font-medium underline block hover:opacity-70 transition-opacity">
-                  +91 99999 99999
+                <a href="tel:+919899230333" className="text-lg md:text-xl font-medium underline block hover:opacity-70 transition-opacity">
+                  +91 9899230333
                 </a>
               </div>
 
               <div className="space-y-1">
                 <h4 className="text-[10px] uppercase tracking-[0.4em] font-black text-black/40">WhatsApp</h4>
                 <div className="flex flex-col gap-0.5">
-                  <a href="#" className="text-lg font-medium underline hover:opacity-70 transition-opacity">Chat with Padel</a>
-                  <a href="#" className="text-lg font-medium underline hover:opacity-70 transition-opacity">Chat with Movement</a>
+                  <a href="https://wa.me/918447232791" target="_blank" rel="noopener noreferrer" className="text-lg font-medium underline hover:opacity-70 transition-opacity">Chat with us</a>
+                  {/* <a href="#" className="text-lg font-medium underline hover:opacity-70 transition-opacity">Chat with Movement</a> */}
                 </div>
               </div>
             </div>
 
             <div className="pt-8 flex gap-8">
               <a href="https://www.instagram.com/thepad.in?igsh=MTZhNGlmMG5uMWRxbA%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity"><Instagram size={24} /></a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity"><Linkedin size={24} /></a>
+              {/* <a href="#" target="_blank" rel="noopener noreferrer" className="hover:opacity-50 transition-opacity"><Linkedin size={24} /></a> */}
             </div>
           </motion.div>
 
@@ -337,7 +337,7 @@ const Contact = () => {
                   <h3 className="text-5xl font-black uppercase italic tracking-tighter mb-6 leading-none" style={{ fontFamily: "'Inter', sans-serif" }}>
                     THANK YOU <br /> FOR REACHING OUT
                   </h3>
-                  
+
                   <p className="text-white/40 mb-12 uppercase tracking-[0.2em] text-xs font-semibold max-w-xs mx-auto leading-relaxed">
                     YOUR INQUIRY HAS BEEN LOGGED. OUR TEAM WILL BE IN TOUCH WITHIN 24 HOURS.
                   </p>
@@ -349,7 +349,7 @@ const Contact = () => {
                     >
                       Return Home
                     </button>
-                    
+
                     <button
                       onClick={() => setStatus("idle")}
                       className="text-[10px] font-black uppercase tracking-[0.4em] text-white/40 hover:text-reserve-accent transition-all border-b border-transparent hover:border-reserve-accent pb-1 cursor-pointer"
@@ -371,13 +371,13 @@ const Contact = () => {
                         value={formData.name}
                         onChange={(e) => {
                           setFormData({ ...formData, name: e.target.value });
-                          if (errors.name) setErrors({...errors, name: ''});
+                          if (errors.name) setErrors({ ...errors, name: '' });
                         }}
                       />
                     </div>
                     <AnimatePresence>
                       {errors.name && (
-                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.name}</motion.p>
+                        <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.name}</motion.p>
                       )}
                     </AnimatePresence>
                   </div>
@@ -391,13 +391,13 @@ const Contact = () => {
                         value={formData.email}
                         onChange={(e) => {
                           setFormData({ ...formData, email: e.target.value });
-                          if (errors.email) setErrors({...errors, email: ''});
+                          if (errors.email) setErrors({ ...errors, email: '' });
                         }}
                       />
                     </div>
                     <AnimatePresence>
                       {errors.email && (
-                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.email}</motion.p>
+                        <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.email}</motion.p>
                       )}
                     </AnimatePresence>
                   </div>
@@ -411,13 +411,13 @@ const Contact = () => {
                         value={formData.phone}
                         onChange={(e) => {
                           setFormData({ ...formData, phone: e.target.value });
-                          if (errors.phone) setErrors({...errors, phone: ''});
+                          if (errors.phone) setErrors({ ...errors, phone: '' });
                         }}
                       />
                     </div>
                     <AnimatePresence>
                       {errors.phone && (
-                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.phone}</motion.p>
+                        <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.phone}</motion.p>
                       )}
                     </AnimatePresence>
                   </div>
@@ -429,7 +429,7 @@ const Contact = () => {
                         value={formData.service}
                         onChange={(e) => {
                           setFormData({ ...formData, service: e.target.value });
-                          if (errors.service) setErrors({...errors, service: ''});
+                          if (errors.service) setErrors({ ...errors, service: '' });
                         }}
                       >
                         <option value="" disabled>SELECT SERVICE</option>
@@ -444,7 +444,7 @@ const Contact = () => {
                     </div>
                     <AnimatePresence>
                       {errors.service && (
-                        <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.service}</motion.p>
+                        <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.service}</motion.p>
                       )}
                     </AnimatePresence>
                   </div>
@@ -459,13 +459,13 @@ const Contact = () => {
                       value={formData.message}
                       onChange={(e) => {
                         setFormData({ ...formData, message: e.target.value });
-                        if (errors.message) setErrors({...errors, message: ''});
+                        if (errors.message) setErrors({ ...errors, message: '' });
                       }}
                     />
                   </div>
                   <AnimatePresence>
                     {errors.message && (
-                      <motion.p initial={{opacity:0, y:-10}} animate={{opacity:1, y:0}} exit={{opacity:0}} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.message}</motion.p>
+                      <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="text-[9px] text-red-500 font-bold uppercase tracking-widest">{errors.message}</motion.p>
                     )}
                   </AnimatePresence>
                 </div>
