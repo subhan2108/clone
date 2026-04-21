@@ -26,11 +26,7 @@ const OurStory = () => {
             className="max-w-4xl mx-auto space-y-6"
           >
             <p className="text-base md:text-lg text-white/70 leading-relaxed font-medium">
-              The Pad is pioneering a new sports culture across India by creating players,
-              fans and friends. Featuring 6 world-class Padel courts and 4 professional Pickleball courts,
-              this community built on and around the court will showcase the world’s newest,
-              most exciting games. Through our clubs and tournaments at Gulmohar Park,
-              The Pad is the catalyst behind India's Padel revolution.
+              The Pad is pioneering a new sports culture across India by creating players, fans, and communities. Featuring world-class Padel and Pickleball courts across locations, this community built on and around the court showcases the world’s newest, most exciting games. Through our clubs and tournaments in Delhi, Goa, and upcoming destinations, The Pad is driving India’s Padel and Pickleball revolution.
             </p>
           </motion.div>
         </motion.div>
@@ -49,33 +45,40 @@ const OurStory = () => {
             viewport={{ once: true }}
             className="order-2 lg:order-1"
           >
-            <div className="grid grid-cols-2 gap-6">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl group bg-gray-100">
-                <video
-                  src="/assets/Jai Suneja.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                  <p className="text-white text-[10px] font-bold uppercase tracking-[0.3em]">Jai Suneja</p>
+            <div className="grid grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl group bg-gray-100">
+                  <video
+                    src="/assets/Jai Suneja.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-black text-[12px] font-bold uppercase tracking-[0.3em]">Jai Suneja</p>
+                  <p className="text-black/40 text-[10px] uppercase tracking-[0.2em] mt-1">Founder</p>
                 </div>
               </div>
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl group bg-gray-100">
-                <video
-                  src="/assets/Shivam Bajaj.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
-                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                  <p className="text-white text-[10px] font-bold uppercase tracking-[0.3em]">Shivam Bajaj</p>
+
+              <div className="space-y-4">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl group bg-gray-100">
+                  <video
+                    src="/assets/Shivam Bajaj.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-100 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                </div>
+                <div className="flex flex-col">
+                  <p className="text-black text-[12px] font-bold uppercase tracking-[0.3em]">Shivam Bajaj</p>
+                  <p className="text-black/40 text-[10px] uppercase tracking-[0.2em] mt-1">Founder</p>
                 </div>
               </div>
             </div>
@@ -155,20 +158,21 @@ const ScrollStatementSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pt-12">
             <motion.div style={{ opacity: opacity1, y: y1 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
-                THE PAD <br /> IS THE FUTURE OF <br /> PADEL
+                THE PAD <br /> IS WHERE <br /> PLAYERS BELONG
               </h3>
             </motion.div>
 
             <motion.div style={{ opacity: opacity2, y: y2 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
-                THE PAD <br /> IS PADEL
+                THE PAD <br /> IS WHERE <br /> INDIA PLAYS NEXT
               </h3>
             </motion.div>
 
             <motion.div style={{ opacity: opacity3, y: y3 }} className="flex flex-col">
               <Link to="/services" className="group cursor-pointer block">
                 <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-reserve-accent">
-                  THE PAD <br /> AT GULMOHAR PARK
+                  FOR THE PAD AT GULMOHAR PARK <br />
+                  MAKE THIS INPLACE OF THAT
                 </h3>
                 <div className="mt-8 relative w-20 h-4">
                   <div className="absolute top-1/2 left-0 h-[1.5px] w-full bg-reserve-accent" />

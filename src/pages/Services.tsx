@@ -234,9 +234,9 @@ const Services = () => {
           <h3 className="text-center text-reserve-accent text-[11px] font-black tracking-[0.6em] mb-24">REGIONAL HUBS</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
-              { name: "THE PAD GULMOHAR", location: "South Delhi", address: "Gulmohar Park, New Delhi, India" },
-              { name: "THE PAD CHATTARPUR", location: "South Delhi", address: "Chattarpur, New Delhi, India" },
-              { name: "THE PAD GURUGRAM", location: "Haryana", address: "Sector 43, Gurugram, India" }
+              { name: "THE PAD GULMOHAR", location: "South Delhi", address: "Gulmohar Park New Delhi India" },
+              { name: "The Pad Goa", location: "Goa", address: "Goa India" },
+              { name: "The Pad Chandigarh", location: "Punjab", address: "Punjab India", comingSoon: true }
             ].map((loc, idx) => (
               <motion.div
                 key={idx}
@@ -245,8 +245,13 @@ const Services = () => {
                 viewport={{ once: true }}
                 variants={verticalRevealVariants}
                 custom={idx}
-                className="group bg-zinc-950 p-12 rounded-[2rem] border border-white/5 hover:border-reserve-accent/50 transition-all duration-500"
+                className="group relative bg-zinc-950 p-12 rounded-[2rem] border border-white/5 hover:border-reserve-accent/50 transition-all duration-500 overflow-hidden"
               >
+                {loc.comingSoon && (
+                  <span className="absolute top-8 right-8 bg-[#FF6A00] text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-wider transform rotate-3 shadow-lg z-20 whitespace-nowrap">
+                    Coming Soon
+                  </span>
+                )}
                 <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-10 group-hover:bg-reserve-accent/10 transition-colors">
                   <MapPin size={24} className="text-reserve-accent" />
                 </div>
