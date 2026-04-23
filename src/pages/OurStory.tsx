@@ -158,23 +158,23 @@ const ScrollStatementSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 pt-12">
             <motion.div style={{ opacity: opacity1, y: y1 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
-                THE PAD <br /> IS WHERE <br /> PLAYERS BELONG
+                THE PAD IS <br /> THE FUTURE OF PADEL
               </h3>
             </motion.div>
 
             <motion.div style={{ opacity: opacity2, y: y2 }} className="flex flex-col">
               <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-white">
-                THE PAD <br /> IS WHERE <br /> INDIA PLAYS NEXT
+                THE PAD IS <br /> WHERE PLAYERS BELONG
               </h3>
             </motion.div>
 
             <motion.div style={{ opacity: opacity3, y: y3 }} className="flex flex-col">
               <Link to="/services" className="group cursor-pointer block">
                 <h3 className="text-3xl md:text-2xl lg:text-3xl font-bold uppercase tracking-[-0.04em] leading-[0.9] text-reserve-accent">
-                  FOR THE PAD AT GULMOHAR PARK <br />
-                  MAKE THIS INPLACE OF THAT
+                  THE PAD IS <br />
+                  WHERE INDIA PLAYS NEXT
                 </h3>
-                <div className="mt-8 relative w-20 h-4">
+                <div className="mt-1 relative w-20 h-4">
                   <div className="absolute top-1/2 left-0 h-[1.5px] w-full bg-reserve-accent" />
                   <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/2 rotate-45 w-2 h-2 border-t-[1.5px] border-r-[1.5px] border-reserve-accent" />
                 </div>
